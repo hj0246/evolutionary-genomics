@@ -1,1 +1,1 @@
-# evolutionary-genomics
+# genomics-course
