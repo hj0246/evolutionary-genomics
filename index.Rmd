@@ -5,9 +5,9 @@ date: Fall 2020
 output:
   rmarkdown::html_document:
     theme: lumen
-bibliography: data/references.bib
 ---
 
+# Welcome to my website!
 This is the collection of hmtl files from the course repository  (https://github.com/hj0246/genomics-course.git) for Evolutionary Genomics & Bioinformatic class at University of Massachusettes Amherst
 
 ![](images/profile.JPG)
@@ -16,10 +16,11 @@ This is the collection of hmtl files from the course repository  (https://github
 
 ### R Basics
 
-LAB 1 : [Introduction to R and Reproducible Research](file:///C:/Users/sec/Documents/Evolutionary_Genomics/genomics-course/lab1_Hyejoo.html)
+#### LAB 1
+[Introduction to R and Reproducible Research](file:///C:/Users/dsb01/OneDrive/Documents/Evolutionary_Genomics/genomic/lab1_Hyejoo.html)
 
-LAB 2 : [git, GitHub and Rstudio project](file:///C:/Users/sec/Documents/Evolutionary_Genomics/genomics-course/lab2_Hyejoo.html)
+#### LAB 2
+[git, GitHub and Rstudio project](file:///C:/Users/dsb01/OneDrive/Documents/Evolutionary_Genomics/genomic/lab2_Hyejoo.html)
 
-Application written in R [@RCoreTeam] using the Shiny framework [@Chang2015].
-
-## REFERENCES
+#### LAB 3a
+[Data Wrangling: Starting with the Data](file:///C:/Users/dsb01/OneDrive/Documents/Evolutionary_Genomics/genomic/lab3a_Hyejoo.html)

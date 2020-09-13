@@ -1,0 +1,322 @@
+---
+title: "Lab3 a: Starting with the Data"
+author: "Hyejoo Kang"
+date: "9/7/2020"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Presentation of the Survey Data
+* Loading tidyverse
+
+```{r}
+library(tidyverse)
+library(crayon)
+```
+
+
+* Downloading cvs file
+```{r, eval = FALSE}
+download.file(url = "https://ndownloader.figshare.com/files/2292169", destfile = "data/portal_data_joined.csv")
+```
+
+* Loading the data
+```{r}
+surveys <- read.csv("data/portal_data_joined.csv")
+```
+* View the top 6 lines of the data frame
+```{r}
+head(surveys)
+```
+* View the data in new tap
+```{r, eval = FALSE}
+View(surveys)
+```
+
+# Learn about data frame
+```{r}
+str(surveys)
+```
+
+# Inspecting 'data.frame' Objects
+* Size:
+```{r, eval = FALSE}
+dim(surveys)
+nrow(surveys)
+ncol(surveys)
+```
+* Content:
+```{r, eval = FALSE}
+head(surveys)
+tail(surveys)
+```
+* Names:
+```{r, eval = FALSE}
+names(surveys)
+rownames(surveys)
+```
+* Summary:
+```{r, eval = FALSE}
+summary(surveys)
+```
+
+## Challenge 1
+Based on the output of str(surveys), can you answer the following questions?
+
+* What is the class of the object surveys?
+```{r}
+class(surveys)
+```
+
+* How many rows and how many columns are in this object?
+```{r}
+nrow(surveys)
+```
+```{r}
+ncol(surveys)
+```
+* How many species have been recorded during these surveys?
+```{r}
+length(unique(surveys$species))
+```
+```{r}
+length(unique(surveys$species_id))
+```
+
+# Indexing and subsetting data frames
+Run 'survey[row#, column#]' to index some specific data as a vector. Running 'surveys[column#]' or 'surveys [row#, ]' display data as a data.frame.
+
+* 3rd column of the data frame (as a vector)
+```{r, eval = FALSE}
+surveys[, 3]
+```
+
+* 2nd column of the data frame (as a data.frame)
+```{r, eval = FALSE}
+surveys[2]
+```
+
+':' is a special function for numeric vectors of integers 
+
+* first two elements in the 10th column (as a vector)
+```{r, eval = FALSE}
+surveys[1:2, 10]
+```
+
+Data frames and vectors can be subset by direct name of column
+```{r, eval = FALSE}
+surveys["species_id"]
+surveys[, "species_id"]
+```
+
+## Challenge 2
+*1. Create a data.frame(surveys_200) containing only the data in row 200 of the survey dataset*
+```{r}
+surveys_200 <- surveys[200, ]
+```
+
+*2. Notice how 'nrow()' gave you the number of rows in a data.frame?*
+```{r}
+nrow(surveys)
+nrow(surveys_200)
+```
+* Use that number to pull out just that last row in the data frame.
+```{r}
+surveys[34786, ]
+surveys_200[1, ]
+```
+
+* Compare that with what you see as the last row using 'tail()' to make sure it’s meeting expectations.
+```{r}
+tail(surveys)
+tail(surveys_200)
+```
+
+* Pull out that last row using 'nrow()' instead of the row number.
+```{r}
+n_rows <- nrow(surveys)
+```
+
+* Create a new data frame (surveys_last) from that last row.
+```{r}
+surveys_last <- surveys[n_rows, ]
+```
+
+*3. Use 'nrow()' to extract the row that is in the middle of the data frame. Store the content of this row in an object named 'surveys_middle'.*
+
+```{r}
+n_rows / 2
+```
+
+```{r}
+surveys_middle <- surveys[17393/2, ]
+surveys_middle
+```
+
+*4. Combine 'nrow()' with the - notation above to reproduce the behavior of 'head(surveys)', keeping just the first through 6th rows of the surveys dataset.*
+```{r}
+surveys[-(7:n_rows), ]
+survyes <- surveys[-(7:n_rows), ]
+```
+
+# Factors
+Factors represent categorical data. Factors contains only a pre-defined levels and levels can be inspected...
+```{r}
+sex <- factor(c("male", "female", "female", "male"))
+levels(sex)
+nlevels(sex)
+```
+
+You can also specify the order of levels for you analysis...
+
+```{r}
+sex # current order
+```
+
+```{r}
+sex <- factor(sex, levels = c("male", "female"))
+sex # after re-ordering
+```
+
+## Converting factors
+
+```{r}
+as.character(sex)
+```
+## Renaming factors
+```{r}
+plot(as.factor(surveys$sex))
+```
+```{r}
+sex_surveys <- factor(surveys$sex)
+head(sex_surveys)
+```
+```{r}
+levels(sex_surveys)
+```
+```{r}
+levels(sex_surveys)[1] <- "undetermined"
+```
+
+```{r}
+levels(sex_surveys)
+```
+
+```{r}
+head(sex_surveys)
+```
+
+## Challenge 3
+* Rename “F” and “M” to “female” and “male” respectively.
+```{r}
+levels(sex_surveys)[2:3] <- c("female", "male")
+```
+
+* Now that we have renamed the factor level to “undetermined”, can you recreate the barplot such that “undetermined” is last (after “male”)?
+```{r}
+sex <- factor(sex_surveys, levels = c("female", "male", "undetermined"))
+```
+```{r}
+plot(sex)
+```
+
+## 'stringsAsFactors = FALSE'
+When our data read columns' characters (strings) as 'factor' vs 'character'
+```{r, eval=FALSE}
+surveys <- read.csv("data/portal_data_joined.csv", stringsAsFactors = TRUE)
+surveys
+```
+
+```{r, eval=FALSE}
+surveys <- read.csv("data/portal_data_joined.csv", stringsAsFactors = FALSE)
+str(surveys)
+```
+Converting the column "plot_type" into a factor
+```{r}
+surveys$plot_type <- factor(surveys$plot_type)
+```
+
+## Challenge 4
+*1. Fix this hand-crafted 'data.frame()'!*
+```{r}
+animal_data <- data.frame(
+          animal = c("dog", "cat", "sea cucumber", "sea urchin"),
+          feel = c("furry", "furry", "squishy", "spiny"),
+          weight = c(45, 8, 1.1, 0.8)
+          )
+```
+
+*2. Can you predict the class for each of the columns in the following example? Check your guesses using str(country_climate):*
+```{r}
+country_climate <- data.frame(
+       country = c("Canada", "Panama", "South Africa", "Australia"),
+       climate = c("cold", "hot", "temperate", "hot/temperate"),
+       temperature = c(10, 30, 18, "15"),
+       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+       has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+       )
+```
+* Are they what you expected? Why? Why not?
+```{r}
+str(country_climate)
+```
+* What would have been different if we had added 'stringsAsFactors = FALSE' when creating the data frame:
+'stringsAsFactors = FALSE' will convert strings to just characters, not factors.
+
+* What would you need to change to ensure that each column had the accurate data type?
+```{r}
+country_climate_fixed <- data.frame(
+       country = c("Canada", "Panama", "South Africa", "Australia"),
+       climate = c("cold", "hot", "temperate", "hot/temperate"),
+       temperature = c(10, 30, 18, 15),
+       northern_hemisphere = c(TRUE, TRUE, FALSE, FALSE),
+       has_kangaroo = c(FALSE, FALSE, FALSE, TRUE)
+       )
+```
+```{r}
+str(country_climate_fixed)
+
+```
+
+# Formatting Dates
+```{r}
+library(lubridate)
+```
+
+```{r}
+my_date <- ymd("2020-01-01")
+str(my_date)
+```
+
+```{r}
+my_date <- ymd(paste("2020", "1", "1", sep = "-")) 
+str(my_date)
+```
+
+```{r, eval=FALSE}
+paste(surveys$year, surveys$month, surveys$day, sep = "-")
+```
+
+```{r, eval=FALSE}
+ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
+```
+
+```{r, eval=FALSE}
+surveys$date <- ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
+```
+
+```{r}
+str(surveys)
+```
+
+```{r}
+summary(surveys$date)
+```
+
+```{r}
+missing_dates <- surveys[is.na(surveys$date), c("year", "month", "day")]
+head(missing_dates)
+```
+
