@@ -2,7 +2,9 @@
 title: "Lab3 a: Starting with the Data"
 author: "Hyejoo Kang"
 date: "9/7/2020"
-output: html_document
+output:
+  rmarkdown::html_document:
+    theme: lumen
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
