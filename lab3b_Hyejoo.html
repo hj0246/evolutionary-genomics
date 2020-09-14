@@ -393,7 +393,7 @@ summary {
 </div>
 
 
-<p>Learn the purpose of the dplyr and tidyr packages (part of the tidyverse package) and understand how to manipulate and analyze data with dplyr. To see the original tutorial <a href="https://datacarpentry.org/R-ecology-lesson/03-dplyr.html#Data_Manipulation_using_dplyr_and_tidyr">click here</a>.</p>
+<p>Understand ‘dplyr’ and ‘tidyr’ (packages coming with the tidyverse package) and learn how to manipulate and analyze data using them. To see the original tutorial <a href="https://datacarpentry.org/R-ecology-lesson/03-dplyr.html#Data_Manipulation_using_dplyr_and_tidyr">click here</a>.</p>
 <div id="manipulating-data-using-dplyr-and-tidyr" class="section level1">
 <h1>Manipulating data using dplyr and tidyr</h1>
 <ul>
@@ -550,7 +550,7 @@ surveys_sml</code></pre>
 </div>
 <div id="challenge-1" class="section level2">
 <h2>Challenge 1</h2>
-<p>Using pipes, subset the surveys data to include animals collected before 1995 and retain only the columns year, sex, and weight.</p>
+<p><em>Using pipes, subset the surveys data to include animals collected before 1995 and retain only the columns year, sex, and weight.</em></p>
 <pre class="r"><code>surveys %&gt;% 
   filter(year &lt; 1995) %&gt;% 
   select(year, sex, weight)</code></pre>
@@ -628,7 +628,7 @@ surveys %&gt;%
 </div>
 <div id="challenge-2" class="section level2">
 <h2>Challenge 2</h2>
-<p>Create a new data frame from the surveys data that meets the following criteria: contains only the species_id column and a new column called hindfoot_cm containing the hindfoot_length values converted to centimeters. In this hindfoot_cm column, there are no NAs and all values are less than 3.</p>
+<p><em>Create a new data frame from the surveys data that meets the following criteria: contains only the species_id column and a new column called hindfoot_cm containing the hindfoot_length values converted to centimeters. In this hindfoot_cm column, there are no NAs and all values are less than 3.</em></p>
 <pre class="r"><code>surveys_hindfoot_cm &lt;- surveys %&gt;% 
   filter(!is.na(hindfoot_length)) %&gt;%
   mutate(hindfoot_cm = hindfoot_length / 10) %&gt;% 

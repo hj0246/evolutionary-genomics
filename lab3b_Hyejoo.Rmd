@@ -10,7 +10,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Learn the purpose of the dplyr and tidyr packages (part of the tidyverse package) and understand how to manipulate and analyze data with dplyr. To see the original tutorial [click here](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html#Data_Manipulation_using_dplyr_and_tidyr).
+Understand 'dplyr' and 'tidyr' (packages coming with the tidyverse package) and learn how to manipulate and analyze data using them. To see the original tutorial [click here](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html#Data_Manipulation_using_dplyr_and_tidyr).
 
 # Manipulating data using dplyr and tidyr
 * Loading the package
@@ -92,7 +92,7 @@ surveys_sml
 ```
 
 ## Challenge 1
-Using pipes, subset the surveys data to include animals collected before 1995 and retain only the columns year, sex, and weight.
+*Using pipes, subset the surveys data to include animals collected before 1995 and retain only the columns year, sex, and weight.*
 ```{r}
 surveys %>% 
   filter(year < 1995) %>% 
@@ -123,7 +123,7 @@ surveys %>%
 ```
 
 ## Challenge 2
-Create a new data frame from the surveys data that meets the following criteria: contains only the species_id column and a new column called hindfoot_cm containing the hindfoot_length values converted to centimeters. In this hindfoot_cm column, there are no NAs and all values are less than 3.
+*Create a new data frame from the surveys data that meets the following criteria: contains only the species_id column and a new column called hindfoot_cm containing the hindfoot_length values converted to centimeters. In this hindfoot_cm column, there are no NAs and all values are less than 3.*
 
 ```{r}
 surveys_hindfoot_cm <- surveys %>% 
