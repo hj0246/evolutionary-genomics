@@ -10,12 +10,13 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+How to load you data file into a data frame? Understand what data frame is and how to inspect data using R. To see the original tutorial [click here](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html).
+
 # Presentation of the Survey Data
 * Loading tidyverse
 
 ```{r}
 library(tidyverse)
-library(crayon)
 ```
 
 

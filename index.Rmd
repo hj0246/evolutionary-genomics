@@ -17,10 +17,13 @@ This is the collection of hmtl files from the course repository  (https://github
 ### R Basics
 
 #### LAB 1
-[Introduction to R and Reproducible Research](lab1_Hyejoo.html)
+##### [Introduction to R and Reproducible Research](lab1_Hyejoo.html)
 
 #### LAB 2
-[git, GitHub and Rstudio project](lab2_Hyejoo.html)
+##### [git, GitHub and Rstudio project](lab2_Hyejoo.html)
 
 #### LAB 3a
-[Data Wrangling: Starting with the Data](lab3a_Hyejoo.html)
+##### [Data Wrangling: Starting with the Data](lab3a_Hyejoo.html)
+
+#### LAB 3b
+##### [Data Wrangling: Manipulating data](lab3b_Hyejoo.html)
