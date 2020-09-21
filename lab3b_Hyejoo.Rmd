@@ -311,3 +311,27 @@ surveys_long %>%
   head()
 ```
 
+# Exporting data
+```{r}
+surveys_complete <- surveys %>% 
+  filter(!is.na(weight),
+         !is.na(hindfoot_length),
+         !is.na(sex))
+```
+
+```{r}
+## Extract the most common species_id
+species_counts <- surveys_complete %>% 
+  count(species_id) %>% 
+  filter(n >= 50)
+
+## Only keep the most common species
+surveys_complete <- surveys_complete %>%
+  filter(species_id %in% species_counts$species_id)
+```
+
+```{r}
+## Export
+write_csv(surveys_complete, path = "data/surveys_complete.csv")
+```
+
