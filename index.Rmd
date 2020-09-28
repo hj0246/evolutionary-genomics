@@ -28,8 +28,11 @@ This is the collection of hmtl files from the course repository  (https://github
 #### LAB 3b
 ##### [Data Wrangling: Manipulating data](lab3b_Hyejoo.html)
 
-#### LAB 4
-##### [Working with COVID-19 reporting data](lab4_Hyejoo.html)
-
 #### LAB 4a
-##### [Data visualization with ggplot2 (1)](lab4a_Hyejoo.html)
+##### [Data visualization with ggplot2](lab4a_Hyejoo.html)
+
+#### LAB 4b
+##### [Working with COVID-19 reporting data (Part1](lab4_Hyejoo.html)
+
+#### LAB 5
+##### [Working with COVID-19 reporting data (Part2)](lab5_Hyejoo.html)
