@@ -151,3 +151,176 @@ ggplot(data = surveys_complete, mapping = aes(x = species_id, y = hindfoot_lengt
   geom_jitter(aes(color = plot_id)) + 
   geom_boxplot(alpha = 0)
 ```
+
+# Plotting time series data
+
+```{r}
+yearly_counts <- surveys_complete %>%
+  count(year, genus)
+```
+
+```{r}
+ggplot(data = yearly_counts, aes(x = year, y = n)) +
+     geom_line()
+```
+
+```{r}
+ggplot(data = yearly_counts, aes(x = year, y = n, group = genus)) +
+    geom_line()
+```
+
+```{r}
+ggplot(data = yearly_counts, aes(x = year, y = n, color = genus)) +
+    geom_line()
+```
+
+# Integrating the pipe operator with ggplot2
+  We can also use the pipe operator to pass the data argument to the ggplot() function. The hard part is to remember that to build your ggplot, you need to use + and not %>%.
+```{r}
+yearly_counts %>% 
+    ggplot(mapping = aes(x = year, y = n, color = genus)) +
+    geom_line()
+```
+
+```{r}
+yearly_counts_graph <- surveys_complete %>%
+    count(year, genus) %>% 
+    ggplot(mapping = aes(x = year, y = n, color = genus)) +
+    geom_line()
+
+yearly_counts_graph
+```
+
+# Faceting
+```{r}
+ggplot(data = yearly_counts, aes(x = year, y = n)) +
+    geom_line() +
+    facet_wrap(facets = vars(genus))
+```
+
+```{r}
+ yearly_sex_counts <- surveys_complete %>%
+                      count(year, genus, sex)
+```
+
+```{r}
+ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
+  geom_line() +
+  facet_wrap(facets =  vars(genus))
+```
+
+```{r}
+ggplot(data = yearly_sex_counts, 
+       mapping = aes(x = year, y = n, color = sex)) +
+  geom_line() +
+  facet_grid(rows = vars(sex), cols =  vars(genus))
+```
+
+```{r}
+# One column, facet by rows
+ggplot(data = yearly_sex_counts, 
+       mapping = aes(x = year, y = n, color = sex)) +
+  geom_line() +
+  facet_grid(rows = vars(genus))
+```
+
+```{r}
+# One row, facet by column
+ggplot(data = yearly_sex_counts, 
+       mapping = aes(x = year, y = n, color = sex)) +
+  geom_line() +
+  facet_grid(cols = vars(genus))
+```
+# ggplot2 themes
+
+```{r}
+ ggplot(data = yearly_sex_counts, 
+        mapping = aes(x = year, y = n, color = sex)) +
+     geom_line() +
+     facet_wrap(vars(genus)) +
+     theme_bw()
+```
+
+  Other themes can be 'theme_minimal()','theme_light()', and 'theme_void()'.
+
+## Challenge
+  Use what you just learned to create a plot that depicts how the average weight of each species changes through the years.
+
+```{r}
+yearly_weight <- surveys_complete %>%
+                group_by(year, species_id) %>%
+                 summarize(avg_weight = mean(weight))
+ggplot(data = yearly_weight, mapping = aes(x=year, y=avg_weight)) +
+   geom_line() +
+   facet_wrap(vars(species_id)) +
+   theme_bw()
+```
+# Customization
+
+```{r}
+ggplot(data = yearly_sex_counts, aes(x = year, y = n, color = sex)) +
+    geom_line() +
+    facet_wrap(vars(genus)) +
+    labs(title = "Observed genera through time",
+         x = "Year of observation",
+         y = "Number of individuals") +
+    theme_bw()
+```
+```{r}
+ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
+    geom_line() +
+    facet_wrap(vars(genus)) +
+    labs(title = "Observed genera through time",
+        x = "Year of observation",
+        y = "Number of individuals") +
+    theme_bw() +
+    theme(text=element_text(size = 16))
+```
+* Using extrafont package
+
+```{r}
+ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
+    geom_line() +
+    facet_wrap(vars(genus)) +
+    labs(title = "Observed genera through time",
+        x = "Year of observation",
+        y = "Number of individuals") +
+    theme_bw() +
+    theme(axis.text.x = element_text(colour = "grey20", size = 12, angle = 90, hjust = 0.5, vjust = 0.5),
+                        axis.text.y = element_text(colour = "grey20", size = 12),
+                        strip.text = element_text(face = "italic"),
+                        text = element_text(size = 16))
+```
+
+```{r}
+grey_theme <- theme(axis.text.x = element_text(colour="grey20", size = 12, 
+                                               angle = 90, hjust = 0.5, vjust = 0.5),
+                    axis.text.y = element_text(colour = "grey20", size = 12),
+                    text=element_text(size = 16))
+
+ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
+    geom_boxplot() +
+    grey_theme
+```
+
+## Challenge
+  With all of this information in hand, please take another five minutes to either improve one of the plots generated in this exercise or create a beautiful graph of your own. Use the RStudio ggplot2 cheat sheet for inspiration.
+
+Here are some ideas:
+
+* See if you can change the thickness of the lines.
+* Can you find a way to change the name of the legend? What about its labels?
+* Try using a different color palette (see http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/).
+
+```{r}
+grey_theme <- theme(axis.text.x = element_text(colour="grey20", size = 12, 
+                                               angle = 90, hjust = 0.5, vjust = 0.5),
+                    axis.text.y = element_text(colour = "grey20", size = 12),
+                    text=element_text(size = 16))
+
+ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length, color = species_id)) +
+    geom_boxplot(size = 1) +
+    labs(x = "Hindfoot Length", y = "Species ID") + 
+           grey_theme
+```
+
