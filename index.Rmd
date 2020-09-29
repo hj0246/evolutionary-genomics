@@ -32,7 +32,11 @@ This is the collection of hmtl files from the course repository  (https://github
 ##### [Data visualization with ggplot2](lab4a_Hyejoo.html)
 
 #### LAB 4b
-##### [Working with COVID-19 reporting data (Part1](lab4_Hyejoo.html)
+##### [Working with COVID-19 reporting data (Part1)](lab4_Hyejoo.html)
 
 #### LAB 5
 ##### [Working with COVID-19 reporting data (Part2)](lab5_Hyejoo_lab5.html)
+
+#### LAB 5.5
+##### [Working with COVID-19 reporting data (Part2.5)](lab5_supplemental_Hyejoo.html)
+
