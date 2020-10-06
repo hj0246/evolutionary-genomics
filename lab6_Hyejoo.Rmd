@@ -1,0 +1,177 @@
+---
+title: "Lab6: Data Maps and Interactive Graphs from the COVID-19 reporting data"
+date: September 28, 2020
+output:
+  rmarkdown::html_document:
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(maps)
+library(mapdata)
+library(lubridate)
+library(viridis)
+library(wesanderson)
+library(plotly)
+```
+# Excercise 1
+
+```{r}
+daily_report <- read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/09-26-2020.csv")) %>% 
+  rename(Long = "Long_") %>% 
+  group_by(Country_Region) %>% 
+  summarize(Confirmed = sum(Confirmed), Deaths = sum(Deaths))
+```
+
+```{r}
+world <- as_tibble(map_data("world"))
+```
+
+```{r}
+setdiff(world$region, daily_report$Country_Region) 
+```
+```{r}
+world <- as_tibble(map_data("world")) %>% 
+ mutate(region = str_replace_all(region, c("USA" = "US", "Czech Republic" = "Czechia",  
+        "Ivory Coast" = "Cote d'Ivoire", "Democratic Republic of the Congo" = "Congo (Kinshasa)", 
+        "Republic of Congo" = "Congo (Brazzaville)", "South Korea" = "Korea, South")))
+```
+
+```{r}
+# Join the covid report with the map data
+country_join <- left_join(world, daily_report, by = c("region" = "Country_Region"))
+```
+
+```{r}
+# Create the graph
+ggplotly(
+ggplot(data = world, mapping = aes(x = long, y = lat, text = region, group = group)) + 
+  coord_fixed(1.3) + 
+  geom_polygon(data = country_join, aes(fill = Deaths), color = "black") +
+  scale_fill_gradientn(colours = 
+                         wes_palette("Zissou1", 100, type = "continuous")) +
+  labs(title = "COVID-19 Deaths")
+)
+```
+
+```{r}
+# Create the graph
+ggplotly(
+ggplot(world, mapping = aes(x = long, y = lat, text = region, size = Confirmed)) + 
+  geom_polygon(data = country_join, aes(fill = Confirmed)) +
+  scale_fill_gradientn(colours = 
+                         wes_palette("Zissou1", 100, type = "continuous")) +
+  labs(title = "COVID-19 Confirmed")
+)
+```
+
+
+
+# Excercise 2
+  Update Anisa Dhana’s graph layout of the US to 9/26/2020. You may need to adjust the range or change to a linear scale (delete trans=“log”)
+
+```{r}
+daily_report <- read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/09-26-2020.csv")) %>% 
+  rename(Long = "Long_") %>% 
+  filter(Country_Region == "US") %>% 
+  filter (!Province_State %in% c("Alaska","Hawaii", "American Samoa",
+                  "Puerto Rico","Northern Mariana Islands", 
+                  "Virgin Islands", "Recovered", "Guam", "Grand Princess",
+                  "District of Columbia", "Diamond Princess")) %>% 
+  filter(Lat > 0)
+```
+```{r}
+mybreaks <- c(1, 100, 1000, 10000, 100000)
+ggplot(daily_report, aes(x = Long, y = Lat, size = Confirmed)) +
+    borders("state", colour = "white", fill = "grey90") +
+    geom_point(aes(x=Long, y=Lat, size=Confirmed, color=Confirmed),stroke=F, alpha=0.7) +
+    scale_size_continuous(name="Cases", range=c(1,7), 
+                        breaks=mybreaks, labels = c("1-999",
+                        "1,000-9,999", "10,000-99,999", "100,000-999,999", "500,000+")) +
+    scale_color_viridis_c(option="viridis",name="Cases",
+                        trans="log", breaks=mybreaks, labels = c("1-999",
+                        "1,000-9,999", "10,000-99,999", "100,000-999,999", "500,000+")) +
+    theme_void() + 
+    guides( colour = guide_legend()) +
+    labs(title = "Anisa Dhana's lagout for COVID-19 Confirmed Cases in the US'") +
+    theme(
+      legend.position = "bottom",
+      text = element_text(color = "#22211d"),
+      plot.background = element_rect(fill = "#ffffff", color = NA), 
+      panel.background = element_rect(fill = "#ffffff", color = NA), 
+      legend.background = element_rect(fill = "#ffffff", color = NA)
+    ) +
+    coord_fixed(ratio=1.5)
+```
+
+# Exercise 3
+  Update the above graph “Number of Confirmed Cases by US County” to 9/26/2020 and use a different color scheme or theme
+
+```{r}
+library(RColorBrewer)
+display.brewer.all()
+```
+
+```{r}
+report_09_26_2020 <-   read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/09-26-2020.csv")) %>% 
+  rename(Long = "Long_") %>% 
+  unite(Key, Admin2, Province_State, sep = ".") %>% 
+  group_by(Key) %>% 
+  summarize(Confirmed = sum(Confirmed)) %>% 
+  mutate(Key = tolower(Key))
+```
+
+```{r}
+us <- map_data("state")
+counties <- map_data("county")%>% 
+  unite(Key, subregion, region, sep = ".", remove = FALSE)
+
+state_join <- left_join(counties, report_09_26_2020, by = c("Key"))
+```
+```{r}
+ggplot(us, aes(x = long, y = lat, group = group)) + 
+  coord_fixed(1.3) + 
+  borders("state", colour = "black") +
+  geom_polygon(data = state_join, aes(fill = Confirmed)) +
+  scale_fill_gradientn(colors = brewer.pal(n = 5, name = "BuPu"),trans = "log10", breaks = c(1, 10, 100, 1000, 10000, 100000), na.value = "White") +
+  ggtitle("Number of Confirmed Cases by US County") +
+  theme_bw()
+```
+
+# Exercise 4
+  Make an interactive plot using a state of your chosing using a theme different from used in the above exammples.
+```{r}
+daily_report <-   read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/09-26-2020.csv")) %>% 
+  rename(Long = "Long_") %>% 
+  filter(Province_State == "Minnesota") %>% 
+  group_by(Admin2) %>% 
+  summarize(Confirmed = sum(Confirmed)) %>% 
+  mutate(Admin2 = tolower(Admin2))
+us <- map_data("state")
+mn_us <- subset(us, region == "minnesota")
+counties <- map_data("county")
+mn_county <- subset(counties, region == "minnesota")
+state_join <- left_join(mn_county, daily_report, by = c("subregion" = "Admin2")) 
+```
+```{r}
+library(plotly)
+
+ggplotly(ggplot(data = mn_county, mapping = aes(x = long, y = lat, group = group)) + 
+           coord_fixed(1.3) + 
+           geom_polygon(data = state_join, aes(fill = Confirmed), color = "black") + 
+           scale_fill_gradientn(colors = brewer.pal(n = 5, name = "YlOrRd")) +
+  ggtitle("COVID-19 Cases in MN") + 
+    labs(x=NULL, y=NULL)+ theme(panel.border = element_blank(), panel.background = element_blank(), axis.ticks = element_blank(), axis.text = element_blank()))
+```
+
+# Exercise 5
+  Create a report with static maps and interactive graphs that is meant to be read by others (e.g. your friends and family). Hide warnings, messages and even the code you used so that it is readable. Included references. Link to the Lab 6 report from your Github site. Submit the link to Moodle. Hide warnings, messages and even the code you used so that it is readable. Included references. Link to the Lab 6 report from your Github site. Submit the link to Moodle. I will talk more about the format on Wed.
+```{r}
+
+```
+
