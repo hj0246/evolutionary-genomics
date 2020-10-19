@@ -1,0 +1,303 @@
+---
+title: "lab 7"
+author: "Hyejoo Kang"
+date: "10/12/2020"
+output:
+  rmarkdown::html_document:
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install(version = "3.11")
+```
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("rnaseqGene")
+
+
+BiocManager::install("airway")
+BiocManager::install("tximeta")
+BiocManager::install("DESeq2")
+BiocManager::install("Gviz")
+BiocManager::install("sva")
+BiocManager::install("RUVSeq")
+BiocManager::install("fission")
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+library("BiocStyle")
+library("knitr")
+library("rmarkdown")
+opts_chunk$set(message = FALSE, error = FALSE, warning = FALSE,
+               cache = FALSE, fig.width = 5, fig.height = 5)
+
+```
+# Preparing quantification input to DESeq2
+
+## Reading in data with tximeta
+```{r}
+## loadairway
+library("airway")
+```
+
+```{r}
+dir <- system.file("extdata", package="airway", mustWork=TRUE)
+```
+
+```{r}
+list.files(dir)
+list.files(file.path(dir, "quants"))
+```
+
+```{r}
+## sample info
+csvfile <- file.path(dir, "sample_table.csv")
+coldata <- read.csv(csvfile, row.names=1, stringsAsFactors=FALSE)
+coldata
+```
+
+```{r}
+## make col data
+coldata <- coldata[1:2,]
+coldata$names <- coldata$Run
+coldata$files <- file.path(dir, "quants", coldata$names, "quant.sf.gz")
+file.exists(coldata$files)
+```
+
+```{r, message=TRUE}
+## tximeta
+
+library("tximeta")
+se <- tximeta(coldata)
+```
+
+```{r}
+## look se
+dim(se)
+head(rownames(se))
+```
+
+## Summarized Experiment
+
+```{r, echo=FALSE}
+## sum exp
+par(mar=c(0,0,0,0))
+plot(1,1,xlim=c(0,100),ylim=c(0,100),bty="n",
+     type="n",xlab="",ylab="",xaxt="n",yaxt="n")
+polygon(c(45,90,90,45),c(5,5,70,70),col="pink",border=NA)
+polygon(c(45,90,90,45),c(68,68,70,70),col="pink3",border=NA)
+text(67.5,40,"assay(s)")
+text(67.5,35,'e.g. "counts", ...')
+polygon(c(10,40,40,10),c(5,5,70,70),col="skyblue",border=NA)
+polygon(c(10,40,40,10),c(68,68,70,70),col="skyblue3",border=NA)
+text(25,40,"rowRanges")
+polygon(c(45,90,90,45),c(75,75,95,95),col="palegreen",border=NA)
+polygon(c(45,47,47,45),c(75,75,95,95),col="palegreen3",border=NA)
+text(67.5,85,"colData")
+```
+```{r}
+gse <- summarizeToGene(se)
+```
+
+```{r}
+## load full gse
+data(gse)
+gse
+```
+
+```{r}
+## assaysgse
+assayNames(gse)
+head(assay(gse), 3)
+colSums(assay(gse))
+```
+```{r}
+## rowrangesgse
+rowRanges(gse)
+```
+```{r}
+## lookseqinfo
+seqinfo(rowRanges(gse))
+```
+
+```{r}
+## coldatagse
+colData(gse)
+```
+
+# The DESeqDataSet object, sample information and the design formula
+
+```{r}
+## gsevars
+gse$donor
+gse$condition
+```
+
+```{r}
+## gse vars rename
+gse$cell <- gse$donor
+gse$dex <- gse$condition
+```
+
+```{r}
+## rename levels
+levels(gse$dex)
+# when renaming levels, the order must be preserved!
+levels(gse$dex) <- c("untrt", "trt")
+```
+
+```{r}
+## gse dex
+library("magrittr")
+gse$dex %<>% relevel("untrt")
+gse$dex
+```
+
+```{r, eval = FALSE}
+## explain cmpass
+gse$dex <- relevel(gse$dex, "untrt")
+```
+
+
+## Starting from SummarizedExperiment
+```{r}
+## count reads
+round( colSums(assay(gse)) / 1e6, 1 )
+```
+
+```{r}
+## load deseq2
+library("DESeq2")
+
+## makedds
+dds <- DESeqDataSet(gse, design = ~ cell + dex)
+
+```
+
+## Starting from count matrices
+
+* countdata: a table with the fragment counts
+* coldata: a table with information about the samples
+```{r}
+countdata <- round(assays(gse)[["counts"]])
+head(countdata, 3)
+coldata <- colData(gse)
+ddsMat <- DESeqDataSetFromMatrix(countData = countdata,
+                                 colData = coldata,
+                                 design = ~ cell + dex)
+```
+
+
+# Exploratory analysis and visualization
+
+## Pre-filtering the dataset
+```{r}
+nrow(dds)
+keep <- rowSums(counts(dds)) > 1
+dds <- dds[keep,]
+nrow(dds)
+```
+
+```{r}
+# keep at least 3 samples with a count of 10 or higher
+keep <- rowSums(counts(dds) >= 10) >= 3
+```
+
+## The variance stabilizing transformation and the rlog
+### The variance stabilizing transformation and the rlog
+```{r}
+# plot the standard deviation of each row (genes) against the mean: meanSdCts
+lambda <- 10^seq(from = -1, to = 2, length = 1000)
+cts <- matrix(rpois(1000*100, lambda), ncol = 100)
+library("vsn")
+meanSdPlot(cts, ranks = FALSE)
+```
+```{r}
+# logarithm-transformed counts: meanSdLogCts
+log.cts.one <- log2(cts + 1)
+meanSdPlot(log.cts.one, ranks = FALSE)
+```
+## variance stabilizing transformation (VST)
+```{r}
+## vst
+vsd <- vst(dds, blind = FALSE)
+head(assay(vsd), 3)
+colData(vsd)
+```
+
+```{r}
+# for log
+rld <- rlog(dds, blind = FALSE)
+head(assay(rld), 3)
+```
+
+```{r, transformplot, fig.width = 6, fig.height = 2.5}
+library("dplyr")
+library("ggplot2")
+
+dds <- estimateSizeFactors(dds)
+
+df <- bind_rows(
+  as_data_frame(log2(counts(dds, normalized=TRUE)[, 1:2]+1)) %>%
+         mutate(transformation = "log2(x + 1)"),
+  as_data_frame(assay(vsd)[, 1:2]) %>% mutate(transformation = "vst"),
+  as_data_frame(assay(rld)[, 1:2]) %>% mutate(transformation = "rlog"))
+  
+colnames(df)[1:2] <- c("x", "y")  
+
+lvls <- c("log2(x + 1)", "vst", "rlog")
+df$transformation <- factor(df$transformation, levels=lvls)
+
+# transform plot
+ggplot(df, aes(x = x, y = y)) + geom_hex(bins = 80) +
+  coord_fixed() + facet_grid( . ~ transformation)  
+```
+
+## Sample distances
+
+```{r}
+sampleDists <- dist(t(assay(vsd)))
+sampleDists
+```
+```{r}
+library("pheatmap")
+library("RColorBrewer")
+```
+
+```{r, distheatmap, fig.width = 6.1, fig.height = 4.5}
+## Heatmap of sample-to-sample distances using the variance stabilizing transformed values
+
+sampleDistMatrix <- as.matrix( sampleDists )
+rownames(sampleDistMatrix) <- paste( vsd$dex, vsd$cell, sep = " - " )
+colnames(sampleDistMatrix) <- NULL
+colors <- colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
+pheatmap(sampleDistMatrix,
+         clustering_distance_rows = sampleDists,
+         clustering_distance_cols = sampleDists,
+         col = colors)
+```
+
+```{r}
+library("PoiClaClu")
+poisd <- PoissonDistance(t(counts(dds)))
+```
+
+```{r, poisdistheatmap, fig.width = 6.1, fig.height = 4.5}
+## Heatmap of sample-to-sample distances using the Poisson Distance
+samplePoisDistMatrix <- as.matrix( poisd$dd )
+rownames(samplePoisDistMatrix) <- paste( dds$dex, dds$cell, sep=" - " )
+colnames(samplePoisDistMatrix) <- NULL
+pheatmap(samplePoisDistMatrix,
+         clustering_distance_rows = poisd$dd,
+         clustering_distance_cols = poisd$dd,
+         col = colors)
+```
+
