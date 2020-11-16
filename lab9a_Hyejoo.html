@@ -9,10 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Hyejoo Kang" />
 
 
-<title>Evolutionary Genomics &amp; Bioinformatics</title>
+<title>Lab 9 : Programming in R - Regular Expressions</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -271,6 +270,939 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<script>(function() {
+  // If window.HTMLWidgets is already defined, then use it; otherwise create a
+  // new object. This allows preceding code to set options that affect the
+  // initialization process (though none currently exist).
+  window.HTMLWidgets = window.HTMLWidgets || {};
+
+  // See if we're running in a viewer pane. If not, we're in a web browser.
+  var viewerMode = window.HTMLWidgets.viewerMode =
+      /\bviewer_pane=1\b/.test(window.location);
+
+  // See if we're running in Shiny mode. If not, it's a static document.
+  // Note that static widgets can appear in both Shiny and static modes, but
+  // obviously, Shiny widgets can only appear in Shiny apps/documents.
+  var shinyMode = window.HTMLWidgets.shinyMode =
+      typeof(window.Shiny) !== "undefined" && !!window.Shiny.outputBindings;
+
+  // We can't count on jQuery being available, so we implement our own
+  // version if necessary.
+  function querySelectorAll(scope, selector) {
+    if (typeof(jQuery) !== "undefined" && scope instanceof jQuery) {
+      return scope.find(selector);
+    }
+    if (scope.querySelectorAll) {
+      return scope.querySelectorAll(selector);
+    }
+  }
+
+  function asArray(value) {
+    if (value === null)
+      return [];
+    if ($.isArray(value))
+      return value;
+    return [value];
+  }
+
+  // Implement jQuery's extend
+  function extend(target /*, ... */) {
+    if (arguments.length == 1) {
+      return target;
+    }
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var prop in source) {
+        if (source.hasOwnProperty(prop)) {
+          target[prop] = source[prop];
+        }
+      }
+    }
+    return target;
+  }
+
+  // IE8 doesn't support Array.forEach.
+  function forEach(values, callback, thisArg) {
+    if (values.forEach) {
+      values.forEach(callback, thisArg);
+    } else {
+      for (var i = 0; i < values.length; i++) {
+        callback.call(thisArg, values[i], i, values);
+      }
+    }
+  }
+
+  // Replaces the specified method with the return value of funcSource.
+  //
+  // Note that funcSource should not BE the new method, it should be a function
+  // that RETURNS the new method. funcSource receives a single argument that is
+  // the overridden method, it can be called from the new method. The overridden
+  // method can be called like a regular function, it has the target permanently
+  // bound to it so "this" will work correctly.
+  function overrideMethod(target, methodName, funcSource) {
+    var superFunc = target[methodName] || function() {};
+    var superFuncBound = function() {
+      return superFunc.apply(target, arguments);
+    };
+    target[methodName] = funcSource(superFuncBound);
+  }
+
+  // Add a method to delegator that, when invoked, calls
+  // delegatee.methodName. If there is no such method on
+  // the delegatee, but there was one on delegator before
+  // delegateMethod was called, then the original version
+  // is invoked instead.
+  // For example:
+  //
+  // var a = {
+  //   method1: function() { console.log('a1'); }
+  //   method2: function() { console.log('a2'); }
+  // };
+  // var b = {
+  //   method1: function() { console.log('b1'); }
+  // };
+  // delegateMethod(a, b, "method1");
+  // delegateMethod(a, b, "method2");
+  // a.method1();
+  // a.method2();
+  //
+  // The output would be "b1", "a2".
+  function delegateMethod(delegator, delegatee, methodName) {
+    var inherited = delegator[methodName];
+    delegator[methodName] = function() {
+      var target = delegatee;
+      var method = delegatee[methodName];
+
+      // The method doesn't exist on the delegatee. Instead,
+      // call the method on the delegator, if it exists.
+      if (!method) {
+        target = delegator;
+        method = inherited;
+      }
+
+      if (method) {
+        return method.apply(target, arguments);
+      }
+    };
+  }
+
+  // Implement a vague facsimilie of jQuery's data method
+  function elementData(el, name, value) {
+    if (arguments.length == 2) {
+      return el["htmlwidget_data_" + name];
+    } else if (arguments.length == 3) {
+      el["htmlwidget_data_" + name] = value;
+      return el;
+    } else {
+      throw new Error("Wrong number of arguments for elementData: " +
+        arguments.length);
+    }
+  }
+
+  // http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+  function escapeRegExp(str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  }
+
+  function hasClass(el, className) {
+    var re = new RegExp("\\b" + escapeRegExp(className) + "\\b");
+    return re.test(el.className);
+  }
+
+  // elements - array (or array-like object) of HTML elements
+  // className - class name to test for
+  // include - if true, only return elements with given className;
+  //   if false, only return elements *without* given className
+  function filterByClass(elements, className, include) {
+    var results = [];
+    for (var i = 0; i < elements.length; i++) {
+      if (hasClass(elements[i], className) == include)
+        results.push(elements[i]);
+    }
+    return results;
+  }
+
+  function on(obj, eventName, func) {
+    if (obj.addEventListener) {
+      obj.addEventListener(eventName, func, false);
+    } else if (obj.attachEvent) {
+      obj.attachEvent(eventName, func);
+    }
+  }
+
+  function off(obj, eventName, func) {
+    if (obj.removeEventListener)
+      obj.removeEventListener(eventName, func, false);
+    else if (obj.detachEvent) {
+      obj.detachEvent(eventName, func);
+    }
+  }
+
+  // Translate array of values to top/right/bottom/left, as usual with
+  // the "padding" CSS property
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/padding
+  function unpackPadding(value) {
+    if (typeof(value) === "number")
+      value = [value];
+    if (value.length === 1) {
+      return {top: value[0], right: value[0], bottom: value[0], left: value[0]};
+    }
+    if (value.length === 2) {
+      return {top: value[0], right: value[1], bottom: value[0], left: value[1]};
+    }
+    if (value.length === 3) {
+      return {top: value[0], right: value[1], bottom: value[2], left: value[1]};
+    }
+    if (value.length === 4) {
+      return {top: value[0], right: value[1], bottom: value[2], left: value[3]};
+    }
+  }
+
+  // Convert an unpacked padding object to a CSS value
+  function paddingToCss(paddingObj) {
+    return paddingObj.top + "px " + paddingObj.right + "px " + paddingObj.bottom + "px " + paddingObj.left + "px";
+  }
+
+  // Makes a number suitable for CSS
+  function px(x) {
+    if (typeof(x) === "number")
+      return x + "px";
+    else
+      return x;
+  }
+
+  // Retrieves runtime widget sizing information for an element.
+  // The return value is either null, or an object with fill, padding,
+  // defaultWidth, defaultHeight fields.
+  function sizingPolicy(el) {
+    var sizingEl = document.querySelector("script[data-for='" + el.id + "'][type='application/htmlwidget-sizing']");
+    if (!sizingEl)
+      return null;
+    var sp = JSON.parse(sizingEl.textContent || sizingEl.text || "{}");
+    if (viewerMode) {
+      return sp.viewer;
+    } else {
+      return sp.browser;
+    }
+  }
+
+  // @param tasks Array of strings (or falsy value, in which case no-op).
+  //   Each element must be a valid JavaScript expression that yields a
+  //   function. Or, can be an array of objects with "code" and "data"
+  //   properties; in this case, the "code" property should be a string
+  //   of JS that's an expr that yields a function, and "data" should be
+  //   an object that will be added as an additional argument when that
+  //   function is called.
+  // @param target The object that will be "this" for each function
+  //   execution.
+  // @param args Array of arguments to be passed to the functions. (The
+  //   same arguments will be passed to all functions.)
+  function evalAndRun(tasks, target, args) {
+    if (tasks) {
+      forEach(tasks, function(task) {
+        var theseArgs = args;
+        if (typeof(task) === "object") {
+          theseArgs = theseArgs.concat([task.data]);
+          task = task.code;
+        }
+        var taskFunc = tryEval(task);
+        if (typeof(taskFunc) !== "function") {
+          throw new Error("Task must be a function! Source:\n" + task);
+        }
+        taskFunc.apply(target, theseArgs);
+      });
+    }
+  }
+
+  // Attempt eval() both with and without enclosing in parentheses.
+  // Note that enclosing coerces a function declaration into
+  // an expression that eval() can parse
+  // (otherwise, a SyntaxError is thrown)
+  function tryEval(code) {
+    var result = null;
+    try {
+      result = eval(code);
+    } catch(error) {
+      if (!error instanceof SyntaxError) {
+        throw error;
+      }
+      try {
+        result = eval("(" + code + ")");
+      } catch(e) {
+        if (e instanceof SyntaxError) {
+          throw error;
+        } else {
+          throw e;
+        }
+      }
+    }
+    return result;
+  }
+
+  function initSizing(el) {
+    var sizing = sizingPolicy(el);
+    if (!sizing)
+      return;
+
+    var cel = document.getElementById("htmlwidget_container");
+    if (!cel)
+      return;
+
+    if (typeof(sizing.padding) !== "undefined") {
+      document.body.style.margin = "0";
+      document.body.style.padding = paddingToCss(unpackPadding(sizing.padding));
+    }
+
+    if (sizing.fill) {
+      document.body.style.overflow = "hidden";
+      document.body.style.width = "100%";
+      document.body.style.height = "100%";
+      document.documentElement.style.width = "100%";
+      document.documentElement.style.height = "100%";
+      if (cel) {
+        cel.style.position = "absolute";
+        var pad = unpackPadding(sizing.padding);
+        cel.style.top = pad.top + "px";
+        cel.style.right = pad.right + "px";
+        cel.style.bottom = pad.bottom + "px";
+        cel.style.left = pad.left + "px";
+        el.style.width = "100%";
+        el.style.height = "100%";
+      }
+
+      return {
+        getWidth: function() { return cel.offsetWidth; },
+        getHeight: function() { return cel.offsetHeight; }
+      };
+
+    } else {
+      el.style.width = px(sizing.width);
+      el.style.height = px(sizing.height);
+
+      return {
+        getWidth: function() { return el.offsetWidth; },
+        getHeight: function() { return el.offsetHeight; }
+      };
+    }
+  }
+
+  // Default implementations for methods
+  var defaults = {
+    find: function(scope) {
+      return querySelectorAll(scope, "." + this.name);
+    },
+    renderError: function(el, err) {
+      var $el = $(el);
+
+      this.clearError(el);
+
+      // Add all these error classes, as Shiny does
+      var errClass = "shiny-output-error";
+      if (err.type !== null) {
+        // use the classes of the error condition as CSS class names
+        errClass = errClass + " " + $.map(asArray(err.type), function(type) {
+          return errClass + "-" + type;
+        }).join(" ");
+      }
+      errClass = errClass + " htmlwidgets-error";
+
+      // Is el inline or block? If inline or inline-block, just display:none it
+      // and add an inline error.
+      var display = $el.css("display");
+      $el.data("restore-display-mode", display);
+
+      if (display === "inline" || display === "inline-block") {
+        $el.hide();
+        if (err.message !== "") {
+          var errorSpan = $("<span>").addClass(errClass);
+          errorSpan.text(err.message);
+          $el.after(errorSpan);
+        }
+      } else if (display === "block") {
+        // If block, add an error just after the el, set visibility:none on the
+        // el, and position the error to be on top of the el.
+        // Mark it with a unique ID and CSS class so we can remove it later.
+        $el.css("visibility", "hidden");
+        if (err.message !== "") {
+          var errorDiv = $("<div>").addClass(errClass).css("position", "absolute")
+            .css("top", el.offsetTop)
+            .css("left", el.offsetLeft)
+            // setting width can push out the page size, forcing otherwise
+            // unnecessary scrollbars to appear and making it impossible for
+            // the element to shrink; so use max-width instead
+            .css("maxWidth", el.offsetWidth)
+            .css("height", el.offsetHeight);
+          errorDiv.text(err.message);
+          $el.after(errorDiv);
+
+          // Really dumb way to keep the size/position of the error in sync with
+          // the parent element as the window is resized or whatever.
+          var intId = setInterval(function() {
+            if (!errorDiv[0].parentElement) {
+              clearInterval(intId);
+              return;
+            }
+            errorDiv
+              .css("top", el.offsetTop)
+              .css("left", el.offsetLeft)
+              .css("maxWidth", el.offsetWidth)
+              .css("height", el.offsetHeight);
+          }, 500);
+        }
+      }
+    },
+    clearError: function(el) {
+      var $el = $(el);
+      var display = $el.data("restore-display-mode");
+      $el.data("restore-display-mode", null);
+
+      if (display === "inline" || display === "inline-block") {
+        if (display)
+          $el.css("display", display);
+        $(el.nextSibling).filter(".htmlwidgets-error").remove();
+      } else if (display === "block"){
+        $el.css("visibility", "inherit");
+        $(el.nextSibling).filter(".htmlwidgets-error").remove();
+      }
+    },
+    sizing: {}
+  };
+
+  // Called by widget bindings to register a new type of widget. The definition
+  // object can contain the following properties:
+  // - name (required) - A string indicating the binding name, which will be
+  //   used by default as the CSS classname to look for.
+  // - initialize (optional) - A function(el) that will be called once per
+  //   widget element; if a value is returned, it will be passed as the third
+  //   value to renderValue.
+  // - renderValue (required) - A function(el, data, initValue) that will be
+  //   called with data. Static contexts will cause this to be called once per
+  //   element; Shiny apps will cause this to be called multiple times per
+  //   element, as the data changes.
+  window.HTMLWidgets.widget = function(definition) {
+    if (!definition.name) {
+      throw new Error("Widget must have a name");
+    }
+    if (!definition.type) {
+      throw new Error("Widget must have a type");
+    }
+    // Currently we only support output widgets
+    if (definition.type !== "output") {
+      throw new Error("Unrecognized widget type '" + definition.type + "'");
+    }
+    // TODO: Verify that .name is a valid CSS classname
+
+    // Support new-style instance-bound definitions. Old-style class-bound
+    // definitions have one widget "object" per widget per type/class of
+    // widget; the renderValue and resize methods on such widget objects
+    // take el and instance arguments, because the widget object can't
+    // store them. New-style instance-bound definitions have one widget
+    // object per widget instance; the definition that's passed in doesn't
+    // provide renderValue or resize methods at all, just the single method
+    //   factory(el, width, height)
+    // which returns an object that has renderValue(x) and resize(w, h).
+    // This enables a far more natural programming style for the widget
+    // author, who can store per-instance state using either OO-style
+    // instance fields or functional-style closure variables (I guess this
+    // is in contrast to what can only be called C-style pseudo-OO which is
+    // what we required before).
+    if (definition.factory) {
+      definition = createLegacyDefinitionAdapter(definition);
+    }
+
+    if (!definition.renderValue) {
+      throw new Error("Widget must have a renderValue function");
+    }
+
+    // For static rendering (non-Shiny), use a simple widget registration
+    // scheme. We also use this scheme for Shiny apps/documents that also
+    // contain static widgets.
+    window.HTMLWidgets.widgets = window.HTMLWidgets.widgets || [];
+    // Merge defaults into the definition; don't mutate the original definition.
+    var staticBinding = extend({}, defaults, definition);
+    overrideMethod(staticBinding, "find", function(superfunc) {
+      return function(scope) {
+        var results = superfunc(scope);
+        // Filter out Shiny outputs, we only want the static kind
+        return filterByClass(results, "html-widget-output", false);
+      };
+    });
+    window.HTMLWidgets.widgets.push(staticBinding);
+
+    if (shinyMode) {
+      // Shiny is running. Register the definition with an output binding.
+      // The definition itself will not be the output binding, instead
+      // we will make an output binding object that delegates to the
+      // definition. This is because we foolishly used the same method
+      // name (renderValue) for htmlwidgets definition and Shiny bindings
+      // but they actually have quite different semantics (the Shiny
+      // bindings receive data that includes lots of metadata that it
+      // strips off before calling htmlwidgets renderValue). We can't
+      // just ignore the difference because in some widgets it's helpful
+      // to call this.renderValue() from inside of resize(), and if
+      // we're not delegating, then that call will go to the Shiny
+      // version instead of the htmlwidgets version.
+
+      // Merge defaults with definition, without mutating either.
+      var bindingDef = extend({}, defaults, definition);
+
+      // This object will be our actual Shiny binding.
+      var shinyBinding = new Shiny.OutputBinding();
+
+      // With a few exceptions, we'll want to simply use the bindingDef's
+      // version of methods if they are available, otherwise fall back to
+      // Shiny's defaults. NOTE: If Shiny's output bindings gain additional
+      // methods in the future, and we want them to be overrideable by
+      // HTMLWidget binding definitions, then we'll need to add them to this
+      // list.
+      delegateMethod(shinyBinding, bindingDef, "getId");
+      delegateMethod(shinyBinding, bindingDef, "onValueChange");
+      delegateMethod(shinyBinding, bindingDef, "onValueError");
+      delegateMethod(shinyBinding, bindingDef, "renderError");
+      delegateMethod(shinyBinding, bindingDef, "clearError");
+      delegateMethod(shinyBinding, bindingDef, "showProgress");
+
+      // The find, renderValue, and resize are handled differently, because we
+      // want to actually decorate the behavior of the bindingDef methods.
+
+      shinyBinding.find = function(scope) {
+        var results = bindingDef.find(scope);
+
+        // Only return elements that are Shiny outputs, not static ones
+        var dynamicResults = results.filter(".html-widget-output");
+
+        // It's possible that whatever caused Shiny to think there might be
+        // new dynamic outputs, also caused there to be new static outputs.
+        // Since there might be lots of different htmlwidgets bindings, we
+        // schedule execution for later--no need to staticRender multiple
+        // times.
+        if (results.length !== dynamicResults.length)
+          scheduleStaticRender();
+
+        return dynamicResults;
+      };
+
+      // Wrap renderValue to handle initialization, which unfortunately isn't
+      // supported natively by Shiny at the time of this writing.
+
+      shinyBinding.renderValue = function(el, data) {
+        Shiny.renderDependencies(data.deps);
+        // Resolve strings marked as javascript literals to objects
+        if (!(data.evals instanceof Array)) data.evals = [data.evals];
+        for (var i = 0; data.evals && i < data.evals.length; i++) {
+          window.HTMLWidgets.evaluateStringMember(data.x, data.evals[i]);
+        }
+        if (!bindingDef.renderOnNullValue) {
+          if (data.x === null) {
+            el.style.visibility = "hidden";
+            return;
+          } else {
+            el.style.visibility = "inherit";
+          }
+        }
+        if (!elementData(el, "initialized")) {
+          initSizing(el);
+
+          elementData(el, "initialized", true);
+          if (bindingDef.initialize) {
+            var result = bindingDef.initialize(el, el.offsetWidth,
+              el.offsetHeight);
+            elementData(el, "init_result", result);
+          }
+        }
+        bindingDef.renderValue(el, data.x, elementData(el, "init_result"));
+        evalAndRun(data.jsHooks.render, elementData(el, "init_result"), [el, data.x]);
+      };
+
+      // Only override resize if bindingDef implements it
+      if (bindingDef.resize) {
+        shinyBinding.resize = function(el, width, height) {
+          // Shiny can call resize before initialize/renderValue have been
+          // called, which doesn't make sense for widgets.
+          if (elementData(el, "initialized")) {
+            bindingDef.resize(el, width, height, elementData(el, "init_result"));
+          }
+        };
+      }
+
+      Shiny.outputBindings.register(shinyBinding, bindingDef.name);
+    }
+  };
+
+  var scheduleStaticRenderTimerId = null;
+  function scheduleStaticRender() {
+    if (!scheduleStaticRenderTimerId) {
+      scheduleStaticRenderTimerId = setTimeout(function() {
+        scheduleStaticRenderTimerId = null;
+        window.HTMLWidgets.staticRender();
+      }, 1);
+    }
+  }
+
+  // Render static widgets after the document finishes loading
+  // Statically render all elements that are of this widget's class
+  window.HTMLWidgets.staticRender = function() {
+    var bindings = window.HTMLWidgets.widgets || [];
+    forEach(bindings, function(binding) {
+      var matches = binding.find(document.documentElement);
+      forEach(matches, function(el) {
+        var sizeObj = initSizing(el, binding);
+
+        if (hasClass(el, "html-widget-static-bound"))
+          return;
+        el.className = el.className + " html-widget-static-bound";
+
+        var initResult;
+        if (binding.initialize) {
+          initResult = binding.initialize(el,
+            sizeObj ? sizeObj.getWidth() : el.offsetWidth,
+            sizeObj ? sizeObj.getHeight() : el.offsetHeight
+          );
+          elementData(el, "init_result", initResult);
+        }
+
+        if (binding.resize) {
+          var lastSize = {
+            w: sizeObj ? sizeObj.getWidth() : el.offsetWidth,
+            h: sizeObj ? sizeObj.getHeight() : el.offsetHeight
+          };
+          var resizeHandler = function(e) {
+            var size = {
+              w: sizeObj ? sizeObj.getWidth() : el.offsetWidth,
+              h: sizeObj ? sizeObj.getHeight() : el.offsetHeight
+            };
+            if (size.w === 0 && size.h === 0)
+              return;
+            if (size.w === lastSize.w && size.h === lastSize.h)
+              return;
+            lastSize = size;
+            binding.resize(el, size.w, size.h, initResult);
+          };
+
+          on(window, "resize", resizeHandler);
+
+          // This is needed for cases where we're running in a Shiny
+          // app, but the widget itself is not a Shiny output, but
+          // rather a simple static widget. One example of this is
+          // an rmarkdown document that has runtime:shiny and widget
+          // that isn't in a render function. Shiny only knows to
+          // call resize handlers for Shiny outputs, not for static
+          // widgets, so we do it ourselves.
+          if (window.jQuery) {
+            window.jQuery(document).on(
+              "shown.htmlwidgets shown.bs.tab.htmlwidgets shown.bs.collapse.htmlwidgets",
+              resizeHandler
+            );
+            window.jQuery(document).on(
+              "hidden.htmlwidgets hidden.bs.tab.htmlwidgets hidden.bs.collapse.htmlwidgets",
+              resizeHandler
+            );
+          }
+
+          // This is needed for the specific case of ioslides, which
+          // flips slides between display:none and display:block.
+          // Ideally we would not have to have ioslide-specific code
+          // here, but rather have ioslides raise a generic event,
+          // but the rmarkdown package just went to CRAN so the
+          // window to getting that fixed may be long.
+          if (window.addEventListener) {
+            // It's OK to limit this to window.addEventListener
+            // browsers because ioslides itself only supports
+            // such browsers.
+            on(document, "slideenter", resizeHandler);
+            on(document, "slideleave", resizeHandler);
+          }
+        }
+
+        var scriptData = document.querySelector("script[data-for='" + el.id + "'][type='application/json']");
+        if (scriptData) {
+          var data = JSON.parse(scriptData.textContent || scriptData.text);
+          // Resolve strings marked as javascript literals to objects
+          if (!(data.evals instanceof Array)) data.evals = [data.evals];
+          for (var k = 0; data.evals && k < data.evals.length; k++) {
+            window.HTMLWidgets.evaluateStringMember(data.x, data.evals[k]);
+          }
+          binding.renderValue(el, data.x, initResult);
+          evalAndRun(data.jsHooks.render, initResult, [el, data.x]);
+        }
+      });
+    });
+
+    invokePostRenderHandlers();
+  }
+
+
+  function has_jQuery3() {
+    if (!window.jQuery) {
+      return false;
+    }
+    var $version = window.jQuery.fn.jquery;
+    var $major_version = parseInt($version.split(".")[0]);
+    return $major_version >= 3;
+  }
+
+  /*
+  / Shiny 1.4 bumped jQuery from 1.x to 3.x which means jQuery's
+  / on-ready handler (i.e., $(fn)) is now asyncronous (i.e., it now
+  / really means $(setTimeout(fn)).
+  / https://jquery.com/upgrade-guide/3.0/#breaking-change-document-ready-handlers-are-now-asynchronous
+  /
+  / Since Shiny uses $() to schedule initShiny, shiny>=1.4 calls initShiny
+  / one tick later than it did before, which means staticRender() is
+  / called renderValue() earlier than (advanced) widget authors might be expecting.
+  / https://github.com/rstudio/shiny/issues/2630
+  /
+  / For a concrete example, leaflet has some methods (e.g., updateBounds)
+  / which reference Shiny methods registered in initShiny (e.g., setInputValue).
+  / Since leaflet is privy to this life-cycle, it knows to use setTimeout() to
+  / delay execution of those methods (until Shiny methods are ready)
+  / https://github.com/rstudio/leaflet/blob/18ec981/javascript/src/index.js#L266-L268
+  /
+  / Ideally widget authors wouldn't need to use this setTimeout() hack that
+  / leaflet uses to call Shiny methods on a staticRender(). In the long run,
+  / the logic initShiny should be broken up so that method registration happens
+  / right away, but binding happens later.
+  */
+  function maybeStaticRenderLater() {
+    if (shinyMode && has_jQuery3()) {
+      window.jQuery(window.HTMLWidgets.staticRender);
+    } else {
+      window.HTMLWidgets.staticRender();
+    }
+  }
+
+  if (document.addEventListener) {
+    document.addEventListener("DOMContentLoaded", function() {
+      document.removeEventListener("DOMContentLoaded", arguments.callee, false);
+      maybeStaticRenderLater();
+    }, false);
+  } else if (document.attachEvent) {
+    document.attachEvent("onreadystatechange", function() {
+      if (document.readyState === "complete") {
+        document.detachEvent("onreadystatechange", arguments.callee);
+        maybeStaticRenderLater();
+      }
+    });
+  }
+
+
+  window.HTMLWidgets.getAttachmentUrl = function(depname, key) {
+    // If no key, default to the first item
+    if (typeof(key) === "undefined")
+      key = 1;
+
+    var link = document.getElementById(depname + "-" + key + "-attachment");
+    if (!link) {
+      throw new Error("Attachment " + depname + "/" + key + " not found in document");
+    }
+    return link.getAttribute("href");
+  };
+
+  window.HTMLWidgets.dataframeToD3 = function(df) {
+    var names = [];
+    var length;
+    for (var name in df) {
+        if (df.hasOwnProperty(name))
+            names.push(name);
+        if (typeof(df[name]) !== "object" || typeof(df[name].length) === "undefined") {
+            throw new Error("All fields must be arrays");
+        } else if (typeof(length) !== "undefined" && length !== df[name].length) {
+            throw new Error("All fields must be arrays of the same length");
+        }
+        length = df[name].length;
+    }
+    var results = [];
+    var item;
+    for (var row = 0; row < length; row++) {
+        item = {};
+        for (var col = 0; col < names.length; col++) {
+            item[names[col]] = df[names[col]][row];
+        }
+        results.push(item);
+    }
+    return results;
+  };
+
+  window.HTMLWidgets.transposeArray2D = function(array) {
+      if (array.length === 0) return array;
+      var newArray = array[0].map(function(col, i) {
+          return array.map(function(row) {
+              return row[i]
+          })
+      });
+      return newArray;
+  };
+  // Split value at splitChar, but allow splitChar to be escaped
+  // using escapeChar. Any other characters escaped by escapeChar
+  // will be included as usual (including escapeChar itself).
+  function splitWithEscape(value, splitChar, escapeChar) {
+    var results = [];
+    var escapeMode = false;
+    var currentResult = "";
+    for (var pos = 0; pos < value.length; pos++) {
+      if (!escapeMode) {
+        if (value[pos] === splitChar) {
+          results.push(currentResult);
+          currentResult = "";
+        } else if (value[pos] === escapeChar) {
+          escapeMode = true;
+        } else {
+          currentResult += value[pos];
+        }
+      } else {
+        currentResult += value[pos];
+        escapeMode = false;
+      }
+    }
+    if (currentResult !== "") {
+      results.push(currentResult);
+    }
+    return results;
+  }
+  // Function authored by Yihui/JJ Allaire
+  window.HTMLWidgets.evaluateStringMember = function(o, member) {
+    var parts = splitWithEscape(member, '.', '\\');
+    for (var i = 0, l = parts.length; i < l; i++) {
+      var part = parts[i];
+      // part may be a character or 'numeric' member name
+      if (o !== null && typeof o === "object" && part in o) {
+        if (i == (l - 1)) { // if we are at the end of the line then evalulate
+          if (typeof o[part] === "string")
+            o[part] = tryEval(o[part]);
+        } else { // otherwise continue to next embedded object
+          o = o[part];
+        }
+      }
+    }
+  };
+
+  // Retrieve the HTMLWidget instance (i.e. the return value of an
+  // HTMLWidget binding's initialize() or factory() function)
+  // associated with an element, or null if none.
+  window.HTMLWidgets.getInstance = function(el) {
+    return elementData(el, "init_result");
+  };
+
+  // Finds the first element in the scope that matches the selector,
+  // and returns the HTMLWidget instance (i.e. the return value of
+  // an HTMLWidget binding's initialize() or factory() function)
+  // associated with that element, if any. If no element matches the
+  // selector, or the first matching element has no HTMLWidget
+  // instance associated with it, then null is returned.
+  //
+  // The scope argument is optional, and defaults to window.document.
+  window.HTMLWidgets.find = function(scope, selector) {
+    if (arguments.length == 1) {
+      selector = scope;
+      scope = document;
+    }
+
+    var el = scope.querySelector(selector);
+    if (el === null) {
+      return null;
+    } else {
+      return window.HTMLWidgets.getInstance(el);
+    }
+  };
+
+  // Finds all elements in the scope that match the selector, and
+  // returns the HTMLWidget instances (i.e. the return values of
+  // an HTMLWidget binding's initialize() or factory() function)
+  // associated with the elements, in an array. If elements that
+  // match the selector don't have an associated HTMLWidget
+  // instance, the returned array will contain nulls.
+  //
+  // The scope argument is optional, and defaults to window.document.
+  window.HTMLWidgets.findAll = function(scope, selector) {
+    if (arguments.length == 1) {
+      selector = scope;
+      scope = document;
+    }
+
+    var nodes = scope.querySelectorAll(selector);
+    var results = [];
+    for (var i = 0; i < nodes.length; i++) {
+      results.push(window.HTMLWidgets.getInstance(nodes[i]));
+    }
+    return results;
+  };
+
+  var postRenderHandlers = [];
+  function invokePostRenderHandlers() {
+    while (postRenderHandlers.length) {
+      var handler = postRenderHandlers.shift();
+      if (handler) {
+        handler();
+      }
+    }
+  }
+
+  // Register the given callback function to be invoked after the
+  // next time static widgets are rendered.
+  window.HTMLWidgets.addPostRenderHandler = function(callback) {
+    postRenderHandlers.push(callback);
+  };
+
+  // Takes a new-style instance-bound definition, and returns an
+  // old-style class-bound definition. This saves us from having
+  // to rewrite all the logic in this file to accomodate both
+  // types of definitions.
+  function createLegacyDefinitionAdapter(defn) {
+    var result = {
+      name: defn.name,
+      type: defn.type,
+      initialize: function(el, width, height) {
+        return defn.factory(el, width, height);
+      },
+      renderValue: function(el, x, instance) {
+        return instance.renderValue(x);
+      },
+      resize: function(el, width, height, instance) {
+        return instance.resize(width, height);
+      }
+    };
+
+    if (defn.find)
+      result.find = defn.find;
+    if (defn.renderError)
+      result.renderError = defn.renderError;
+    if (defn.clearError)
+      result.clearError = defn.clearError;
+
+    return result;
+  }
+})();
+
+</script>
+<style type="text/css">.str_view ul, .str_view li {
+list-style: none;
+padding: 0;
+margin: 0.5em 0;
+font-family: monospace;
+}
+.str_view .match {
+border: 1px solid #ccc;
+background-color: #eee;
+}
+</style>
+<script>HTMLWidgets.widget({
+
+  name: 'str_view',
+
+  type: 'output',
+
+  initialize: function(el, width, height) {
+  },
+
+  renderValue: function(el, x, instance) {
+    el.innerHTML = x.html;
+  },
+
+  resize: function(el, width, height, instance) {
+  }
+
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -434,99 +1366,614 @@ summary {
 
 
 
-<h1 class="title toc-ignore">Evolutionary Genomics &amp; Bioinformatics</h1>
-<h4 class="author">Hyejoo Kang</h4>
-<h4 class="date">Fall 2020</h4>
+<h1 class="title toc-ignore">Lab 9 : Programming in R - Regular Expressions</h1>
 
 </div>
 
 
-<div id="welcome-to-my-website" class="section level1">
-<h1>Welcome to my website!</h1>
-<p>This is the collection of hmtl files from the course repository (<a href="https://github.com/hj0246/genomics-course.git" class="uri">https://github.com/hj0246/genomics-course.git</a>) for Evolutionary Genomics &amp; Bioinformatic class at University of Massachusettes Amherst</p>
-<p><img src="data:image/jpeg;base64,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" /></p>
-<div id="lab-contents" class="section level2">
-<h2>Lab Contents</h2>
-<div id="r-basics" class="section level3">
-<h3>R Basics</h3>
-<div id="lab-1" class="section level4">
-<h4>LAB 1</h4>
-<div id="introduction-to-r-and-reproducible-research" class="section level5">
-<h5><a href="lab1_Hyejoo.html">Introduction to R and Reproducible Research</a></h5>
+<div id="matching-patterns-with-regular-expressions" class="section level1">
+<h1>Matching patterns with regular expressions</h1>
+<pre class="r"><code>library(stringr)
+library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.4     v dplyr   1.0.2
+## v tidyr   1.1.2     v forcats 0.5.0
+## v readr   1.4.0</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div id="basic-matches" class="section level2">
+<h2>Basic matches</h2>
+<pre class="r"><code>x &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
+str_view(x, &quot;an&quot;)</code></pre>
+<div id="htmlwidget-0c73f77ca90afd1850ef" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0c73f77ca90afd1850ef">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_view(x, &quot;.a.&quot;)</code></pre>
+<div id="htmlwidget-47e2cf59dd569f3ad2e9" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-47e2cf59dd569f3ad2e9">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>p<span class='match'>ear<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code># To create the regular expression, we need \\
+dot &lt;- &quot;\\.&quot;
+
+# But the expression itself only contains one:
+writeLines(dot)</code></pre>
+<pre><code>## \.</code></pre>
+<pre class="r"><code>x &lt;- &quot;a\\b&quot;
+writeLines(x)</code></pre>
+<pre><code>## a\b</code></pre>
+<pre class="r"><code>str_view(x, &quot;\\\\&quot;)</code></pre>
+<div id="htmlwidget-c70a886a7b441ce290d6" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c70a886a7b441ce290d6">{"x":{"html":"<ul>\n  <li>a<span class='match'>\\<\/span>b<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="exercises-1" class="section level3">
+<h3>Exercises 1</h3>
+<ol style="list-style-type: decimal">
+<li>Explain why each of these strings don’t match a : “&quot;,”\“,”\&quot;.</li>
+</ol>
+<ul>
+<li>&quot;&quot;: Escape the next character in the string.</li>
+<li>“\”: Resolve to  in the regular expression, which escape the next character in the regular expression.</li>
+<li>&quot;\&quot;: The first two resolve to a literal backslash in the regular expression, the third escape the next character. So in the regular expression, this will escape some escaped character.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>How would you match the sequence &quot;’?</li>
+</ol>
+<pre class="r"><code>str_view(&quot;\&quot;&#39;\\&quot;, &quot;\&quot;&#39;\\\\&quot;, match = TRUE)</code></pre>
+<div id="htmlwidget-611949170891067e7262" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-611949170891067e7262">{"x":{"html":"<ul>\n  <li><span class='match'>\"'\\<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>3 What patterns will the regular expression ...... match? How would you represent it as a string?</p>
+<pre class="r"><code>str_view(c(&quot;.a.b.c&quot;, &quot;.a.b&quot;, &quot;.....&quot;), c(&quot;\\..\\..\\..&quot;), match = TRUE)</code></pre>
+<div id="htmlwidget-ad26aeddc9886e5bbf97" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ad26aeddc9886e5bbf97">{"x":{"html":"<ul>\n  <li><span class='match'>.a.b.c<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div id="lab-2" class="section level4">
-<h4>LAB 2</h4>
-<div id="git-github-and-rstudio-project" class="section level5">
-<h5><a href="lab2_Hyejoo.html">git, GitHub and Rstudio project</a></h5>
+<div id="anchors" class="section level2">
+<h2>Anchors</h2>
+<ul>
+<li>^ to match the start of the string.</li>
+<li>$ to match the end of the string.</li>
+</ul>
+<pre class="r"><code>x &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
+str_view(x, &quot;^a&quot;)</code></pre>
+<div id="htmlwidget-b40a998b967f73afb39e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b40a998b967f73afb39e">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_view(x, &quot;a$&quot;)</code></pre>
+<div id="htmlwidget-339edc9158f8f11b5652" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-339edc9158f8f11b5652">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>x &lt;- c(&quot;apple pie&quot;, &quot;apple&quot;, &quot;apple cake&quot;)
+str_view(x, &quot;apple&quot;)</code></pre>
+<div id="htmlwidget-c6a93125bebe1e415359" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c6a93125bebe1e415359">{"x":{"html":"<ul>\n  <li><span class='match'>apple<\/span> pie<\/li>\n  <li><span class='match'>apple<\/span><\/li>\n  <li><span class='match'>apple<\/span> cake<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_view(x, &quot;^apple$&quot;)</code></pre>
+<p><div id="htmlwidget-7667bccbb92b5ba72fa0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7667bccbb92b5ba72fa0">{"x":{"html":"<ul>\n  <li>apple pie<\/li>\n  <li><span class='match'>apple<\/span><\/li>\n  <li>apple cake<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script> ### Exercises 2 1. How would you match the literal string “<span class="math inline">\(^\)</span>”?</p>
+<pre class="r"><code>str_view(c(&quot;$^$&quot;, &quot;ab$^$sfas&quot;), &quot;^\\$\\^\\$$&quot;, match = TRUE)</code></pre>
+<div id="htmlwidget-72a4ff3d80f83e36aa4e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-72a4ff3d80f83e36aa4e">{"x":{"html":"<ul>\n  <li><span class='match'>$^$<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<ol start="2" style="list-style-type: decimal">
+<li>Given the corpus of common words in stringr::words, create regular expressions that find all words that: ** Start with “y”.</li>
+</ol>
+<pre class="r"><code>str_view(stringr::words, &quot;^y&quot;, match = TRUE)</code></pre>
+<div id="htmlwidget-5038c43afea2231ef7b0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5038c43afea2231ef7b0">{"x":{"html":"<ul>\n  <li><span class='match'>y<\/span>ear<\/li>\n  <li><span class='match'>y<\/span>es<\/li>\n  <li><span class='match'>y<\/span>esterday<\/li>\n  <li><span class='match'>y<\/span>et<\/li>\n  <li><span class='match'>y<\/span>ou<\/li>\n  <li><span class='match'>y<\/span>oung<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li>End with “x”</li>
+</ul>
+<pre class="r"><code>str_view(stringr::words, &quot;x$&quot;, match = TRUE)</code></pre>
+<div id="htmlwidget-199f111e408c2fa19114" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-199f111e408c2fa19114">{"x":{"html":"<ul>\n  <li>bo<span class='match'>x<\/span><\/li>\n  <li>se<span class='match'>x<\/span><\/li>\n  <li>si<span class='match'>x<\/span><\/li>\n  <li>ta<span class='match'>x<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li>Are exactly three letters long. (Don’t cheat by using str_length()!)</li>
+</ul>
+<pre class="r"><code>str_view(stringr::words, &quot;^...$&quot;, match = TRUE)</code></pre>
+<ul>
+<li>Have seven letters or more.</li>
+</ul>
+<pre class="r"><code>str_view(stringr::words, &quot;.......&quot;, match = TRUE)</code></pre>
+</div>
+<div id="character-classes-and-alternatives" class="section level2">
+<h2>Character classes and alternatives</h2>
+<ul>
+<li> matches any digit.</li>
+<li>: matches any whitespace (e.g. space, tab, newline).</li>
+<li>[abc] : matches a, b, or c.</li>
+<li>[^abc] : matches anything except a, b, or c.</li>
+</ul>
+<pre class="r"><code># Look for a literal character that normally has special meaning in a regex
+x &lt;- c(&quot;abc&quot;, &quot;a.c&quot;, &quot;a*c&quot;, &quot;a c&quot;)
+str_view(x, &quot;a[.]c&quot;)</code></pre>
+<div id="htmlwidget-ed800e9c2a04e95bb076" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ed800e9c2a04e95bb076">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li><span class='match'>a.c<\/span><\/li>\n  <li>a*c<\/li>\n  <li>a c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_view(x, &quot;.[*]c&quot;)</code></pre>
+<div id="htmlwidget-706e384d11dfd941d829" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-706e384d11dfd941d829">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li>a.c<\/li>\n  <li><span class='match'>a*c<\/span><\/li>\n  <li>a c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_view(x, &quot;a[ ]&quot;)</code></pre>
+<div id="htmlwidget-1747597d343d33c66713" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1747597d343d33c66713">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li>a.c<\/li>\n  <li>a*c<\/li>\n  <li><span class='match'>a <\/span>c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>x &lt;- c(&quot;grey&quot;, &quot;gray&quot;)
+str_view(x, &quot;gr(e|a)y&quot;)</code></pre>
+<div id="htmlwidget-d4c82ef6b248be31a48a" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d4c82ef6b248be31a48a">{"x":{"html":"<ul>\n  <li><span class='match'>grey<\/span><\/li>\n  <li><span class='match'>gray<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="exercises-3" class="section level3">
+<h3>Exercises 3</h3>
+<ol style="list-style-type: decimal">
+<li>Create regular expressions to find all words that:</li>
+</ol>
+<ul>
+<li>Start with a vowel.</li>
+</ul>
+<pre class="r"><code>str_subset(stringr::words, &quot;^[aeiou]&quot;)</code></pre>
+<pre><code>##   [1] &quot;a&quot;           &quot;able&quot;        &quot;about&quot;       &quot;absolute&quot;    &quot;accept&quot;     
+##   [6] &quot;account&quot;     &quot;achieve&quot;     &quot;across&quot;      &quot;act&quot;         &quot;active&quot;     
+##  [11] &quot;actual&quot;      &quot;add&quot;         &quot;address&quot;     &quot;admit&quot;       &quot;advertise&quot;  
+##  [16] &quot;affect&quot;      &quot;afford&quot;      &quot;after&quot;       &quot;afternoon&quot;   &quot;again&quot;      
+##  [21] &quot;against&quot;     &quot;age&quot;         &quot;agent&quot;       &quot;ago&quot;         &quot;agree&quot;      
+##  [26] &quot;air&quot;         &quot;all&quot;         &quot;allow&quot;       &quot;almost&quot;      &quot;along&quot;      
+##  [31] &quot;already&quot;     &quot;alright&quot;     &quot;also&quot;        &quot;although&quot;    &quot;always&quot;     
+##  [36] &quot;america&quot;     &quot;amount&quot;      &quot;and&quot;         &quot;another&quot;     &quot;answer&quot;     
+##  [41] &quot;any&quot;         &quot;apart&quot;       &quot;apparent&quot;    &quot;appear&quot;      &quot;apply&quot;      
+##  [46] &quot;appoint&quot;     &quot;approach&quot;    &quot;appropriate&quot; &quot;area&quot;        &quot;argue&quot;      
+##  [51] &quot;arm&quot;         &quot;around&quot;      &quot;arrange&quot;     &quot;art&quot;         &quot;as&quot;         
+##  [56] &quot;ask&quot;         &quot;associate&quot;   &quot;assume&quot;      &quot;at&quot;          &quot;attend&quot;     
+##  [61] &quot;authority&quot;   &quot;available&quot;   &quot;aware&quot;       &quot;away&quot;        &quot;awful&quot;      
+##  [66] &quot;each&quot;        &quot;early&quot;       &quot;east&quot;        &quot;easy&quot;        &quot;eat&quot;        
+##  [71] &quot;economy&quot;     &quot;educate&quot;     &quot;effect&quot;      &quot;egg&quot;         &quot;eight&quot;      
+##  [76] &quot;either&quot;      &quot;elect&quot;       &quot;electric&quot;    &quot;eleven&quot;      &quot;else&quot;       
+##  [81] &quot;employ&quot;      &quot;encourage&quot;   &quot;end&quot;         &quot;engine&quot;      &quot;english&quot;    
+##  [86] &quot;enjoy&quot;       &quot;enough&quot;      &quot;enter&quot;       &quot;environment&quot; &quot;equal&quot;      
+##  [91] &quot;especial&quot;    &quot;europe&quot;      &quot;even&quot;        &quot;evening&quot;     &quot;ever&quot;       
+##  [96] &quot;every&quot;       &quot;evidence&quot;    &quot;exact&quot;       &quot;example&quot;     &quot;except&quot;     
+## [101] &quot;excuse&quot;      &quot;exercise&quot;    &quot;exist&quot;       &quot;expect&quot;      &quot;expense&quot;    
+## [106] &quot;experience&quot;  &quot;explain&quot;     &quot;express&quot;     &quot;extra&quot;       &quot;eye&quot;        
+## [111] &quot;idea&quot;        &quot;identify&quot;    &quot;if&quot;          &quot;imagine&quot;     &quot;important&quot;  
+## [116] &quot;improve&quot;     &quot;in&quot;          &quot;include&quot;     &quot;income&quot;      &quot;increase&quot;   
+## [121] &quot;indeed&quot;      &quot;individual&quot;  &quot;industry&quot;    &quot;inform&quot;      &quot;inside&quot;     
+## [126] &quot;instead&quot;     &quot;insure&quot;      &quot;interest&quot;    &quot;into&quot;        &quot;introduce&quot;  
+## [131] &quot;invest&quot;      &quot;involve&quot;     &quot;issue&quot;       &quot;it&quot;          &quot;item&quot;       
+## [136] &quot;obvious&quot;     &quot;occasion&quot;    &quot;odd&quot;         &quot;of&quot;          &quot;off&quot;        
+## [141] &quot;offer&quot;       &quot;office&quot;      &quot;often&quot;       &quot;okay&quot;        &quot;old&quot;        
+## [146] &quot;on&quot;          &quot;once&quot;        &quot;one&quot;         &quot;only&quot;        &quot;open&quot;       
+## [151] &quot;operate&quot;     &quot;opportunity&quot; &quot;oppose&quot;      &quot;or&quot;          &quot;order&quot;      
+## [156] &quot;organize&quot;    &quot;original&quot;    &quot;other&quot;       &quot;otherwise&quot;   &quot;ought&quot;      
+## [161] &quot;out&quot;         &quot;over&quot;        &quot;own&quot;         &quot;under&quot;       &quot;understand&quot; 
+## [166] &quot;union&quot;       &quot;unit&quot;        &quot;unite&quot;       &quot;university&quot;  &quot;unless&quot;     
+## [171] &quot;until&quot;       &quot;up&quot;          &quot;upon&quot;        &quot;use&quot;         &quot;usual&quot;</code></pre>
+<ul>
+<li>That only contain consonants. (Hint: thinking about matching “not”-vowels.)</li>
+</ul>
+<pre class="r"><code>str_subset(stringr::words, &quot;[aeiou]&quot;, negate=TRUE)</code></pre>
+<pre><code>## [1] &quot;by&quot;  &quot;dry&quot; &quot;fly&quot; &quot;mrs&quot; &quot;try&quot; &quot;why&quot;</code></pre>
+<ul>
+<li>End with ed, but not with eed.</li>
+</ul>
+<pre class="r"><code>str_subset(stringr::words, &quot;[^e]ed$&quot;)</code></pre>
+<pre><code>## [1] &quot;bed&quot;     &quot;hundred&quot; &quot;red&quot;</code></pre>
+<ul>
+<li>End with ing or ise.</li>
+</ul>
+<pre class="r"><code>str_subset(stringr::words, &quot;i(ng|se)$&quot;)</code></pre>
+<pre><code>##  [1] &quot;advertise&quot; &quot;bring&quot;     &quot;during&quot;    &quot;evening&quot;   &quot;exercise&quot;  &quot;king&quot;     
+##  [7] &quot;meaning&quot;   &quot;morning&quot;   &quot;otherwise&quot; &quot;practise&quot;  &quot;raise&quot;     &quot;realise&quot;  
+## [13] &quot;ring&quot;      &quot;rise&quot;      &quot;sing&quot;      &quot;surprise&quot;  &quot;thing&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Empirically verify the rule “i before e except after c”.</li>
+</ol>
+<pre class="r"><code>length(str_subset(stringr::words, &quot;(cei|[^c]ie)&quot;))</code></pre>
+<pre><code>## [1] 14</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Is “q” always followed by a “u”?</li>
+</ol>
+<pre class="r"><code>str_view(stringr::words, &quot;q[^u]&quot;, match = TRUE)</code></pre>
+<div id="htmlwidget-e112ecfe426e99cae9a4" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e112ecfe426e99cae9a4">{"x":{"html":"<ul>\n  <li><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Write a regular expression that matches a word if it’s probably written in British English, not American English.</p></li>
+<li><p>Create a regular expression that will match telephone numbers as commonly written in your country.</p></li>
+</ol>
+<pre class="r"><code>x &lt;- c(&quot;123-4567-8901&quot;, &quot;(123)4567-8901&quot;, &quot;(123) 4567-8901&quot;)
+str_view(x, &quot;\\d\\d\\d-\\d\\d\\d\\d-\\d\\d\\d\\d&quot;)</code></pre>
+<div id="htmlwidget-811b225af5c3f8146b3a" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-811b225af5c3f8146b3a">{"x":{"html":"<ul>\n  <li><span class='match'>123-4567-8901<\/span><\/li>\n  <li>(123)4567-8901<\/li>\n  <li>(123) 4567-8901<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div id="lab-3a" class="section level4">
-<h4>LAB 3a</h4>
-<div id="data-wrangling-starting-with-the-data" class="section level5">
-<h5><a href="lab3a_Hyejoo.html">Data Wrangling: Starting with the Data</a></h5>
+<div id="repetition" class="section level2">
+<h2>Repetition</h2>
+<ul>
+<li>?: 0 or 1</li>
+<li>+: 1 or more</li>
+<li>*: 0 or more</li>
+</ul>
+<pre class="r"><code>x &lt;- &quot;1888 is the longest year in Roman numerals: MDCCCLXXXVIII&quot;
+str_view(x, &quot;CC?&quot;)</code></pre>
+<div id="htmlwidget-6fefcdb1c9561ac27e59" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6fefcdb1c9561ac27e59">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_view(x, &#39;C[LX]+&#39;)</code></pre>
+<div id="htmlwidget-a6b8c354ac64cefb2cd6" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a6b8c354ac64cefb2cd6">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MDCC<span class='match'>CLXXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li>{n}: exactly n</li>
+<li>{n,}: n or more</li>
+<li>{,m}: at most m</li>
+<li>{n,m}: between n and m</li>
+</ul>
+<pre class="r"><code>str_view(x, &quot;C{2,}&quot;)</code></pre>
+<div id="htmlwidget-b66b33adc81d11272175" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b66b33adc81d11272175">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_view(x, &#39;C[LX]+?&#39;)</code></pre>
+<div id="htmlwidget-2e781007ee2a541cedb8" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2e781007ee2a541cedb8">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MDCC<span class='match'>CL<\/span>XXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="exercises-4" class="section level3">
+<h3>Exercises 4</h3>
+<ol style="list-style-type: decimal">
+<li>Describe the equivalents of ?, +, * in {m,n} form.</li>
+</ol>
+<ul>
+<li>? = {0,1}</li>
+<li><ul>
+<li>= {1,}</li>
+</ul></li>
+<li><ul>
+<li>= {0,}</li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Describe in words what these regular expressions match</li>
+</ol>
+<ul>
+<li>^.*$ = match with any string</li>
+<li>“\{.+\}” = match any string with curly braces surrounding at least one character</li>
+<li>-- = four digits followed by a hyphen, followed by two digits followed by a hyphen, followed by another two digits</li>
+<li>“\\{4}” = four backslashes</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Create regular expressions to find all words that:</li>
+</ol>
+<ul>
+<li>Start with three consonants.</li>
+</ul>
+<pre class="r"><code>str_view(words, &quot;^[^aeiou]{3}&quot;, match = TRUE)</code></pre>
+<div id="htmlwidget-f73a631dfdae9325ee1b" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f73a631dfdae9325ee1b">{"x":{"html":"<ul>\n  <li><span class='match'>Chr<\/span>ist<\/li>\n  <li><span class='match'>Chr<\/span>istmas<\/li>\n  <li><span class='match'>dry<\/span><\/li>\n  <li><span class='match'>fly<\/span><\/li>\n  <li><span class='match'>mrs<\/span><\/li>\n  <li><span class='match'>sch<\/span>eme<\/li>\n  <li><span class='match'>sch<\/span>ool<\/li>\n  <li><span class='match'>str<\/span>aight<\/li>\n  <li><span class='match'>str<\/span>ategy<\/li>\n  <li><span class='match'>str<\/span>eet<\/li>\n  <li><span class='match'>str<\/span>ike<\/li>\n  <li><span class='match'>str<\/span>ong<\/li>\n  <li><span class='match'>str<\/span>ucture<\/li>\n  <li><span class='match'>sys<\/span>tem<\/li>\n  <li><span class='match'>thr<\/span>ee<\/li>\n  <li><span class='match'>thr<\/span>ough<\/li>\n  <li><span class='match'>thr<\/span>ow<\/li>\n  <li><span class='match'>try<\/span><\/li>\n  <li><span class='match'>typ<\/span>e<\/li>\n  <li><span class='match'>why<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li>Have three or more vowels in a row.</li>
+</ul>
+<pre class="r"><code>str_view(words, &quot;[aeiou]{3,}&quot;, match = TRUE)</code></pre>
+<div id="htmlwidget-e97487f4b323fdc393d7" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e97487f4b323fdc393d7">{"x":{"html":"<ul>\n  <li>b<span class='match'>eau<\/span>ty<\/li>\n  <li>obv<span class='match'>iou<\/span>s<\/li>\n  <li>prev<span class='match'>iou<\/span>s<\/li>\n  <li>q<span class='match'>uie<\/span>t<\/li>\n  <li>ser<span class='match'>iou<\/span>s<\/li>\n  <li>var<span class='match'>iou<\/span>s<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li>Have two or more vowel-consonant pairs in a row.</li>
+</ul>
+<pre class="r"><code>str_view(words, &quot;([aeiou][^aeiou]){2,}&quot;, match = TRUE)</code></pre>
+<div id="htmlwidget-c2fde52e1e45633d31c0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c2fde52e1e45633d31c0">{"x":{"html":"<ul>\n  <li>abs<span class='match'>olut<\/span>e<\/li>\n  <li><span class='match'>agen<\/span>t<\/li>\n  <li><span class='match'>alon<\/span>g<\/li>\n  <li><span class='match'>americ<\/span>a<\/li>\n  <li><span class='match'>anot<\/span>her<\/li>\n  <li><span class='match'>apar<\/span>t<\/li>\n  <li>app<span class='match'>aren<\/span>t<\/li>\n  <li>auth<span class='match'>orit<\/span>y<\/li>\n  <li>ava<span class='match'>ilab<\/span>le<\/li>\n  <li><span class='match'>awar<\/span>e<\/li>\n  <li><span class='match'>away<\/span><\/li>\n  <li>b<span class='match'>alan<\/span>ce<\/li>\n  <li>b<span class='match'>asis<\/span><\/li>\n  <li>b<span class='match'>ecom<\/span>e<\/li>\n  <li>b<span class='match'>efor<\/span>e<\/li>\n  <li>b<span class='match'>egin<\/span><\/li>\n  <li>b<span class='match'>ehin<\/span>d<\/li>\n  <li>b<span class='match'>enefit<\/span><\/li>\n  <li>b<span class='match'>usines<\/span>s<\/li>\n  <li>ch<span class='match'>arac<\/span>ter<\/li>\n  <li>cl<span class='match'>oses<\/span><\/li>\n  <li>comm<span class='match'>unit<\/span>y<\/li>\n  <li>cons<span class='match'>ider<\/span><\/li>\n  <li>c<span class='match'>over<\/span><\/li>\n  <li>d<span class='match'>ebat<\/span>e<\/li>\n  <li>d<span class='match'>ecid<\/span>e<\/li>\n  <li>d<span class='match'>ecis<\/span>ion<\/li>\n  <li>d<span class='match'>efinit<\/span>e<\/li>\n  <li>d<span class='match'>epar<\/span>tment<\/li>\n  <li>d<span class='match'>epen<\/span>d<\/li>\n  <li>d<span class='match'>esig<\/span>n<\/li>\n  <li>d<span class='match'>evelop<\/span><\/li>\n  <li>diff<span class='match'>eren<\/span>ce<\/li>\n  <li>diff<span class='match'>icul<\/span>t<\/li>\n  <li>d<span class='match'>irec<\/span>t<\/li>\n  <li>d<span class='match'>ivid<\/span>e<\/li>\n  <li>d<span class='match'>ocumen<\/span>t<\/li>\n  <li>d<span class='match'>urin<\/span>g<\/li>\n  <li><span class='match'>econom<\/span>y<\/li>\n  <li><span class='match'>educat<\/span>e<\/li>\n  <li><span class='match'>elec<\/span>t<\/li>\n  <li><span class='match'>elec<\/span>tric<\/li>\n  <li><span class='match'>eleven<\/span><\/li>\n  <li>enco<span class='match'>urag<\/span>e<\/li>\n  <li>env<span class='match'>iron<\/span>ment<\/li>\n  <li>e<span class='match'>urop<\/span>e<\/li>\n  <li><span class='match'>even<\/span><\/li>\n  <li><span class='match'>evenin<\/span>g<\/li>\n  <li><span class='match'>ever<\/span><\/li>\n  <li><span class='match'>ever<\/span>y<\/li>\n  <li><span class='match'>eviden<\/span>ce<\/li>\n  <li><span class='match'>exac<\/span>t<\/li>\n  <li><span class='match'>exam<\/span>ple<\/li>\n  <li><span class='match'>exer<\/span>cise<\/li>\n  <li><span class='match'>exis<\/span>t<\/li>\n  <li>f<span class='match'>amil<\/span>y<\/li>\n  <li>f<span class='match'>igur<\/span>e<\/li>\n  <li>f<span class='match'>inal<\/span><\/li>\n  <li>f<span class='match'>inan<\/span>ce<\/li>\n  <li>f<span class='match'>inis<\/span>h<\/li>\n  <li>fr<span class='match'>iday<\/span><\/li>\n  <li>f<span class='match'>utur<\/span>e<\/li>\n  <li>g<span class='match'>eneral<\/span><\/li>\n  <li>g<span class='match'>over<\/span>n<\/li>\n  <li>h<span class='match'>oliday<\/span><\/li>\n  <li>h<span class='match'>ones<\/span>t<\/li>\n  <li>hosp<span class='match'>ital<\/span><\/li>\n  <li>h<span class='match'>owever<\/span><\/li>\n  <li><span class='match'>iden<\/span>tify<\/li>\n  <li><span class='match'>imagin<\/span>e<\/li>\n  <li>ind<span class='match'>ivid<\/span>ual<\/li>\n  <li>int<span class='match'>eres<\/span>t<\/li>\n  <li>intr<span class='match'>oduc<\/span>e<\/li>\n  <li><span class='match'>item<\/span><\/li>\n  <li>j<span class='match'>esus<\/span><\/li>\n  <li>l<span class='match'>evel<\/span><\/li>\n  <li>l<span class='match'>ikel<\/span>y<\/li>\n  <li>l<span class='match'>imit<\/span><\/li>\n  <li>l<span class='match'>ocal<\/span><\/li>\n  <li>m<span class='match'>ajor<\/span><\/li>\n  <li>m<span class='match'>anag<\/span>e<\/li>\n  <li>me<span class='match'>anin<\/span>g<\/li>\n  <li>me<span class='match'>asur<\/span>e<\/li>\n  <li>m<span class='match'>inis<\/span>ter<\/li>\n  <li>m<span class='match'>inus<\/span><\/li>\n  <li>m<span class='match'>inut<\/span>e<\/li>\n  <li>m<span class='match'>omen<\/span>t<\/li>\n  <li>m<span class='match'>oney<\/span><\/li>\n  <li>m<span class='match'>usic<\/span><\/li>\n  <li>n<span class='match'>atur<\/span>e<\/li>\n  <li>n<span class='match'>eces<\/span>sary<\/li>\n  <li>n<span class='match'>ever<\/span><\/li>\n  <li>n<span class='match'>otic<\/span>e<\/li>\n  <li><span class='match'>okay<\/span><\/li>\n  <li><span class='match'>open<\/span><\/li>\n  <li><span class='match'>operat<\/span>e<\/li>\n  <li>opport<span class='match'>unit<\/span>y<\/li>\n  <li>org<span class='match'>aniz<\/span>e<\/li>\n  <li><span class='match'>original<\/span><\/li>\n  <li><span class='match'>over<\/span><\/li>\n  <li>p<span class='match'>aper<\/span><\/li>\n  <li>p<span class='match'>arag<\/span>raph<\/li>\n  <li>p<span class='match'>aren<\/span>t<\/li>\n  <li>part<span class='match'>icular<\/span><\/li>\n  <li>ph<span class='match'>otog<\/span>raph<\/li>\n  <li>p<span class='match'>olic<\/span>e<\/li>\n  <li>p<span class='match'>olic<\/span>y<\/li>\n  <li>p<span class='match'>olitic<\/span><\/li>\n  <li>p<span class='match'>osit<\/span>ion<\/li>\n  <li>p<span class='match'>ositiv<\/span>e<\/li>\n  <li>p<span class='match'>ower<\/span><\/li>\n  <li>pr<span class='match'>epar<\/span>e<\/li>\n  <li>pr<span class='match'>esen<\/span>t<\/li>\n  <li>pr<span class='match'>esum<\/span>e<\/li>\n  <li>pr<span class='match'>ivat<\/span>e<\/li>\n  <li>pr<span class='match'>obab<\/span>le<\/li>\n  <li>pr<span class='match'>oces<\/span>s<\/li>\n  <li>pr<span class='match'>oduc<\/span>e<\/li>\n  <li>pr<span class='match'>oduc<\/span>t<\/li>\n  <li>pr<span class='match'>ojec<\/span>t<\/li>\n  <li>pr<span class='match'>oper<\/span><\/li>\n  <li>pr<span class='match'>opos<\/span>e<\/li>\n  <li>pr<span class='match'>otec<\/span>t<\/li>\n  <li>pr<span class='match'>ovid<\/span>e<\/li>\n  <li>qu<span class='match'>alit<\/span>y<\/li>\n  <li>re<span class='match'>alis<\/span>e<\/li>\n  <li>re<span class='match'>ason<\/span><\/li>\n  <li>r<span class='match'>ecen<\/span>t<\/li>\n  <li>r<span class='match'>ecog<\/span>nize<\/li>\n  <li>r<span class='match'>ecom<\/span>mend<\/li>\n  <li>r<span class='match'>ecor<\/span>d<\/li>\n  <li>r<span class='match'>educ<\/span>e<\/li>\n  <li>r<span class='match'>efer<\/span><\/li>\n  <li>r<span class='match'>egar<\/span>d<\/li>\n  <li>r<span class='match'>elat<\/span>ion<\/li>\n  <li>r<span class='match'>emem<\/span>ber<\/li>\n  <li>r<span class='match'>epor<\/span>t<\/li>\n  <li>repr<span class='match'>esen<\/span>t<\/li>\n  <li>r<span class='match'>esul<\/span>t<\/li>\n  <li>r<span class='match'>etur<\/span>n<\/li>\n  <li>s<span class='match'>atur<\/span>day<\/li>\n  <li>s<span class='match'>econ<\/span>d<\/li>\n  <li>secr<span class='match'>etar<\/span>y<\/li>\n  <li>s<span class='match'>ecur<\/span>e<\/li>\n  <li>s<span class='match'>eparat<\/span>e<\/li>\n  <li>s<span class='match'>even<\/span><\/li>\n  <li>s<span class='match'>imilar<\/span><\/li>\n  <li>sp<span class='match'>ecific<\/span><\/li>\n  <li>str<span class='match'>ateg<\/span>y<\/li>\n  <li>st<span class='match'>uden<\/span>t<\/li>\n  <li>st<span class='match'>upid<\/span><\/li>\n  <li>t<span class='match'>elep<\/span>hone<\/li>\n  <li>t<span class='match'>elevis<\/span>ion<\/li>\n  <li>th<span class='match'>erefor<\/span>e<\/li>\n  <li>tho<span class='match'>usan<\/span>d<\/li>\n  <li>t<span class='match'>oday<\/span><\/li>\n  <li>t<span class='match'>oget<\/span>her<\/li>\n  <li>t<span class='match'>omor<\/span>row<\/li>\n  <li>t<span class='match'>onig<\/span>ht<\/li>\n  <li>t<span class='match'>otal<\/span><\/li>\n  <li>t<span class='match'>owar<\/span>d<\/li>\n  <li>tr<span class='match'>avel<\/span><\/li>\n  <li><span class='match'>unit<\/span><\/li>\n  <li><span class='match'>unit<\/span>e<\/li>\n  <li><span class='match'>univer<\/span>sity<\/li>\n  <li><span class='match'>upon<\/span><\/li>\n  <li>v<span class='match'>isit<\/span><\/li>\n  <li>w<span class='match'>ater<\/span><\/li>\n  <li>w<span class='match'>oman<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div id="lab-3b" class="section level4">
-<h4>LAB 3b</h4>
-<div id="data-wrangling-manipulating-data" class="section level5">
-<h5><a href="lab3b_Hyejoo.html">Data Wrangling: Manipulating data</a></h5>
+<div id="grouping-and-backreferences" class="section level2">
+<h2>Grouping and backreferences</h2>
+<pre class="r"><code>str_view(fruit, &quot;(..)\\1&quot;, match = TRUE)</code></pre>
+<div id="htmlwidget-f2d72c1a5a1833a8558f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f2d72c1a5a1833a8558f">{"x":{"html":"<ul>\n  <li>b<span class='match'>anan<\/span>a<\/li>\n  <li><span class='match'>coco<\/span>nut<\/li>\n  <li><span class='match'>cucu<\/span>mber<\/li>\n  <li><span class='match'>juju<\/span>be<\/li>\n  <li><span class='match'>papa<\/span>ya<\/li>\n  <li>s<span class='match'>alal<\/span> berry<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="exercises-5" class="section level3">
+<h3>Exercises 5</h3>
+<ol style="list-style-type: decimal">
+<li>Describe, in words, what these expressions will match:</li>
+</ol>
+<ul>
+<li>(.)\1\1 = Same character three times in a row</li>
+<li>“(.)(.)\2\1” = A pair of characters followed by the same pair of characters in reversed order</li>
+<li>(..)\1 = two characters repeated</li>
+<li>“(.).\1.\1” = A character followed by any character, the original character, any other character, the original character again</li>
+<li>&quot;(.)(.)(.).*\3\2\1&quot; = Three characters followed by zero or more characters of any kind followed by the same three characters but in reverse order</li>
+</ul>
 </div>
 </div>
-<div id="lab-4a" class="section level4">
-<h4>LAB 4a</h4>
-<div id="data-visualization-with-ggplot2" class="section level5">
-<h5><a href="lab4a_Hyejoo.html">Data visualization with ggplot2</a></h5>
+</div>
+<div id="tools" class="section level1">
+<h1>Tools</h1>
+<div id="detect-matches" class="section level2">
+<h2>Detect matches</h2>
+<pre class="r"><code>x &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
+str_detect(x, &quot;e&quot;)</code></pre>
+<pre><code>## [1]  TRUE FALSE  TRUE</code></pre>
+<pre class="r"><code># How many common words start with t?
+sum(str_detect(words, &quot;^t&quot;))</code></pre>
+<pre><code>## [1] 65</code></pre>
+<pre class="r"><code># What proportion of common words end with a vowel?
+mean(str_detect(words, &quot;[aeiou]$&quot;))</code></pre>
+<pre><code>## [1] 0.2765306</code></pre>
+<pre class="r"><code># Find all words containing at least one vowel, and negate
+no_vowels_1 &lt;- !str_detect(words, &quot;[aeiou]&quot;)</code></pre>
+<pre class="r"><code># Find all words consisting only of consonants (non-vowels)
+no_vowels_2 &lt;- str_detect(words, &quot;^[^aeiou]+$&quot;)
+identical(no_vowels_1, no_vowels_2)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>words[str_detect(words, &quot;x$&quot;)]</code></pre>
+<pre><code>## [1] &quot;box&quot; &quot;sex&quot; &quot;six&quot; &quot;tax&quot;</code></pre>
+<pre class="r"><code>df &lt;- tibble(
+  word = words, 
+  i = seq_along(word)
+)
+df %&gt;% 
+  filter(str_detect(word, &quot;x$&quot;))</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##   word      i
+##   &lt;chr&gt; &lt;int&gt;
+## 1 box     108
+## 2 sex     747
+## 3 six     772
+## 4 tax     841</code></pre>
+<pre class="r"><code>x &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
+str_count(x, &quot;a&quot;)</code></pre>
+<pre><code>## [1] 1 3 1</code></pre>
+<pre class="r"><code># On average, how many vowels per word?
+mean(str_count(words, &quot;[aeiou]&quot;))</code></pre>
+<pre><code>## [1] 1.991837</code></pre>
+<pre class="r"><code>df %&gt;% 
+  mutate(
+    vowels = str_count(word, &quot;[aeiou]&quot;),
+    consonants = str_count(word, &quot;[^aeiou]&quot;)
+  )</code></pre>
+<pre><code>## # A tibble: 980 x 4
+##    word         i vowels consonants
+##    &lt;chr&gt;    &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+##  1 a            1      1          0
+##  2 able         2      2          2
+##  3 about        3      3          2
+##  4 absolute     4      4          4
+##  5 accept       5      2          4
+##  6 account      6      3          4
+##  7 achieve      7      4          3
+##  8 across       8      2          4
+##  9 act          9      1          2
+## 10 active      10      3          3
+## # ... with 970 more rows</code></pre>
+<div id="exercise-6" class="section level3">
+<h3>Exercise 6</h3>
+<ol style="list-style-type: decimal">
+<li>For each of the following challenges, try solving it by using both a single regular expression, and a combination of multiple str_detect() calls.</li>
+</ol>
+<ul>
+<li>Find all words that start or end with x.</li>
+</ul>
+<pre class="r"><code># one regex
+words[str_detect(words, &quot;^x|x$&quot;)]</code></pre>
+<pre><code>## [1] &quot;box&quot; &quot;sex&quot; &quot;six&quot; &quot;tax&quot;</code></pre>
+<pre class="r"><code># split regex into parts
+start_with_x &lt;- str_detect(words, &quot;^x&quot;)
+end_with_x &lt;- str_detect(words, &quot;x$&quot;)
+words[start_with_x | end_with_x]</code></pre>
+<pre><code>## [1] &quot;box&quot; &quot;sex&quot; &quot;six&quot; &quot;tax&quot;</code></pre>
+<ul>
+<li>Find all words that start with a vowel and end with a consonant.</li>
+</ul>
+<pre class="r"><code>str_subset(words, &quot;^[aeiou].*[^aeiou]$&quot;) %&gt;% head()</code></pre>
+<pre><code>## [1] &quot;about&quot;   &quot;accept&quot;  &quot;account&quot; &quot;across&quot;  &quot;act&quot;     &quot;actual&quot;</code></pre>
+<pre class="r"><code>start_with_vowel &lt;- str_detect(words, &quot;^[aeiou]&quot;)
+end_with_consonant &lt;- str_detect(words, &quot;[^aeiou]$&quot;)
+words[start_with_vowel &amp; end_with_consonant] %&gt;% head()</code></pre>
+<pre><code>## [1] &quot;about&quot;   &quot;accept&quot;  &quot;account&quot; &quot;across&quot;  &quot;act&quot;     &quot;actual&quot;</code></pre>
+<ul>
+<li>Are there any words that contain at least one of each different vowel?</li>
+</ul>
+<pre class="r"><code>pattern &lt;-
+  cross(rerun(5, c(&quot;a&quot;, &quot;e&quot;, &quot;i&quot;, &quot;o&quot;, &quot;u&quot;)),
+    .filter = function(...) {
+      x &lt;- as.character(unlist(list(...)))
+      length(x) != length(unique(x))
+    }
+  ) %&gt;%
+  map_chr(~str_c(unlist(.x), collapse = &quot;.*&quot;)) %&gt;%
+  str_c(collapse = &quot;|&quot;)</code></pre>
+<pre class="r"><code>str_subset(&quot;aseiouds&quot;, pattern)</code></pre>
+<pre><code>## [1] &quot;aseiouds&quot;</code></pre>
+<pre class="r"><code>str_subset(words, pattern)</code></pre>
+<pre><code>## character(0)</code></pre>
+<pre class="r"><code>words[str_detect(words, &quot;a&quot;) &amp;
+  str_detect(words, &quot;e&quot;) &amp;
+  str_detect(words, &quot;i&quot;) &amp;
+  str_detect(words, &quot;o&quot;) &amp;
+  str_detect(words, &quot;u&quot;)]</code></pre>
+<pre><code>## character(0)</code></pre>
 </div>
 </div>
-<div id="lab-4b" class="section level4">
-<h4>LAB 4b</h4>
-<div id="working-with-covid-19-reporting-data-part1" class="section level5">
-<h5><a href="lab4_Hyejoo.html">Working with COVID-19 reporting data (Part1)</a></h5>
+<div id="extract-matches" class="section level2">
+<h2>Extract matches</h2>
+<pre class="r"><code>length(sentences)</code></pre>
+<pre><code>## [1] 720</code></pre>
+<pre class="r"><code>head(sentences)</code></pre>
+<pre><code>## [1] &quot;The birch canoe slid on the smooth planks.&quot; 
+## [2] &quot;Glue the sheet to the dark blue background.&quot;
+## [3] &quot;It&#39;s easy to tell the depth of a well.&quot;     
+## [4] &quot;These days a chicken leg is a rare dish.&quot;   
+## [5] &quot;Rice is often served in round bowls.&quot;       
+## [6] &quot;The juice of lemons makes fine punch.&quot;</code></pre>
+<pre class="r"><code>colours &lt;- c(&quot;red&quot;, &quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;purple&quot;)
+colour_match &lt;- str_c(colours, collapse = &quot;|&quot;)
+colour_match</code></pre>
+<pre><code>## [1] &quot;red|orange|yellow|green|blue|purple&quot;</code></pre>
+<pre class="r"><code>has_colour &lt;- str_subset(sentences, colour_match)
+matches &lt;- str_extract(has_colour, colour_match)
+head(matches)</code></pre>
+<pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;red&quot;  &quot;red&quot;  &quot;blue&quot;</code></pre>
+<p>Above example has an error</p>
+<pre class="r"><code>more &lt;- sentences[str_count(sentences, colour_match) &gt; 1]
+str_view_all(more, colour_match)</code></pre>
+<div id="htmlwidget-94278ac391d0b95b2bfe" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-94278ac391d0b95b2bfe">{"x":{"html":"<ul>\n  <li>It is hard to erase <span class='match'>blue<\/span> or <span class='match'>red<\/span> ink.<\/li>\n  <li>The <span class='match'>green<\/span> light in the brown box flicke<span class='match'>red<\/span>.<\/li>\n  <li>The sky in the west is tinged with <span class='match'>orange<\/span> <span class='match'>red<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_extract(more, colour_match)</code></pre>
+<pre><code>## [1] &quot;blue&quot;   &quot;green&quot;  &quot;orange&quot;</code></pre>
+<pre class="r"><code>## To get all matches, use str_extract_all()</code></pre>
+<pre class="r"><code>## matrix with short matches expanded to the same length as the longest
+str_extract_all(more, colour_match, simplify = TRUE)</code></pre>
+<pre><code>##      [,1]     [,2] 
+## [1,] &quot;blue&quot;   &quot;red&quot;
+## [2,] &quot;green&quot;  &quot;red&quot;
+## [3,] &quot;orange&quot; &quot;red&quot;</code></pre>
+<pre class="r"><code>x &lt;- c(&quot;a&quot;, &quot;a b&quot;, &quot;a b c&quot;)
+str_extract_all(x, &quot;[a-z]&quot;, simplify = TRUE)</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,] &quot;a&quot;  &quot;&quot;   &quot;&quot;  
+## [2,] &quot;a&quot;  &quot;b&quot;  &quot;&quot;  
+## [3,] &quot;a&quot;  &quot;b&quot;  &quot;c&quot;</code></pre>
+<div id="exercise-7" class="section level3">
+<h3>Exercise 7</h3>
+<p>In the previous example, you might have noticed that the regular expression matched “flickered”, which is not a colour. Modify the regex to fix the problem.</p>
+<pre class="r"><code>colours &lt;- c(&quot;red&quot;, &quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;purple&quot;)
+colour_match &lt;- str_c(colours, collapse = &quot;|&quot;)</code></pre>
+<pre class="r"><code>colour_match2 &lt;- str_c(&quot;\\b(&quot;, str_c(colours, collapse = &quot;|&quot;), &quot;)\\b&quot;)
+colour_match2</code></pre>
+<pre><code>## [1] &quot;\\b(red|orange|yellow|green|blue|purple)\\b&quot;</code></pre>
+<pre class="r"><code>more2 &lt;- sentences[str_count(sentences, colour_match) &gt; 1]
+
+str_view_all(more2, colour_match2, match = TRUE)</code></pre>
+<div id="htmlwidget-e75f3da00b8297116d49" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e75f3da00b8297116d49">{"x":{"html":"<ul>\n  <li>It is hard to erase <span class='match'>blue<\/span> or <span class='match'>red<\/span> ink.<\/li>\n  <li>The <span class='match'>green<\/span> light in the brown box flickered.<\/li>\n  <li>The sky in the west is tinged with <span class='match'>orange<\/span> <span class='match'>red<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div id="lab-5" class="section level4">
-<h4>LAB 5</h4>
-<div id="working-with-covid-19-reporting-data-part2" class="section level5">
-<h5><a href="lab5_Hyejoo_lab5.html">Working with COVID-19 reporting data (Part2)</a></h5>
+<div id="grouped-matches" class="section level2">
+<h2>Grouped matches</h2>
+<pre class="r"><code>noun &lt;- &quot;(a|the) ([^ ]+)&quot;
+
+has_noun &lt;- sentences %&gt;%
+  str_subset(noun) %&gt;%
+  head(10)
+has_noun %&gt;% 
+  str_extract(noun)</code></pre>
+<pre><code>##  [1] &quot;the smooth&quot; &quot;the sheet&quot;  &quot;the depth&quot;  &quot;a chicken&quot;  &quot;the parked&quot;
+##  [6] &quot;the sun&quot;    &quot;the huge&quot;   &quot;the ball&quot;   &quot;the woman&quot;  &quot;a helps&quot;</code></pre>
+<pre class="r"><code>has_noun %&gt;% 
+  str_match(noun)</code></pre>
+<pre><code>##       [,1]         [,2]  [,3]     
+##  [1,] &quot;the smooth&quot; &quot;the&quot; &quot;smooth&quot; 
+##  [2,] &quot;the sheet&quot;  &quot;the&quot; &quot;sheet&quot;  
+##  [3,] &quot;the depth&quot;  &quot;the&quot; &quot;depth&quot;  
+##  [4,] &quot;a chicken&quot;  &quot;a&quot;   &quot;chicken&quot;
+##  [5,] &quot;the parked&quot; &quot;the&quot; &quot;parked&quot; 
+##  [6,] &quot;the sun&quot;    &quot;the&quot; &quot;sun&quot;    
+##  [7,] &quot;the huge&quot;   &quot;the&quot; &quot;huge&quot;   
+##  [8,] &quot;the ball&quot;   &quot;the&quot; &quot;ball&quot;   
+##  [9,] &quot;the woman&quot;  &quot;the&quot; &quot;woman&quot;  
+## [10,] &quot;a helps&quot;    &quot;a&quot;   &quot;helps&quot;</code></pre>
+<pre class="r"><code>tibble(sentence = sentences) %&gt;% 
+  tidyr::extract(
+    sentence, c(&quot;article&quot;, &quot;noun&quot;), &quot;(a|the) ([^ ]+)&quot;, 
+    remove = FALSE
+  )</code></pre>
+<pre><code>## # A tibble: 720 x 3
+##    sentence                                    article noun   
+##    &lt;chr&gt;                                       &lt;chr&gt;   &lt;chr&gt;  
+##  1 The birch canoe slid on the smooth planks.  the     smooth 
+##  2 Glue the sheet to the dark blue background. the     sheet  
+##  3 It&#39;s easy to tell the depth of a well.      the     depth  
+##  4 These days a chicken leg is a rare dish.    a       chicken
+##  5 Rice is often served in round bowls.        &lt;NA&gt;    &lt;NA&gt;   
+##  6 The juice of lemons makes fine punch.       &lt;NA&gt;    &lt;NA&gt;   
+##  7 The box was thrown beside the parked truck. the     parked 
+##  8 The hogs were fed chopped corn and garbage. &lt;NA&gt;    &lt;NA&gt;   
+##  9 Four hours of steady work faced us.         &lt;NA&gt;    &lt;NA&gt;   
+## 10 Large size in stockings is hard to sell.    &lt;NA&gt;    &lt;NA&gt;   
+## # ... with 710 more rows</code></pre>
+<div id="exercise-8" class="section level3">
+<h3>Exercise 8</h3>
+<p>Find all words that come after a “number” like “one”, “two”, “three” etc. Pull out both the number and the word.</p>
+<pre class="r"><code>numword &lt;- &quot;\\b(one|two|three|four|five|six|seven|eight|nine|ten) +(\\w+)&quot;
+sentences[str_detect(sentences, numword)] %&gt;%
+  str_extract(numword)</code></pre>
+<pre><code>##  [1] &quot;seven books&quot;   &quot;two met&quot;       &quot;two factors&quot;   &quot;three lists&quot;  
+##  [5] &quot;seven is&quot;      &quot;two when&quot;      &quot;ten inches&quot;    &quot;one war&quot;      
+##  [9] &quot;one button&quot;    &quot;six minutes&quot;   &quot;ten years&quot;     &quot;two shares&quot;   
+## [13] &quot;two distinct&quot;  &quot;five cents&quot;    &quot;two pins&quot;      &quot;five robins&quot;  
+## [17] &quot;four kinds&quot;    &quot;three story&quot;   &quot;three inches&quot;  &quot;six comes&quot;    
+## [21] &quot;three batches&quot; &quot;two leaves&quot;</code></pre>
 </div>
 </div>
-<div id="lab-5x" class="section level4">
-<h4>LAB 5x</h4>
-<div id="working-with-covid-19-reporting-data-part2.5" class="section level5">
-<h5><a href="lab5_supplemental_Hyejoo.html">Working with COVID-19 reporting data (Part2.5)</a></h5>
+<div id="replacing-matche" class="section level2">
+<h2>Replacing matche</h2>
+<pre class="r"><code>x &lt;- c(&quot;apple&quot;, &quot;pear&quot;, &quot;banana&quot;)
+str_replace(x, &quot;[aeiou]&quot;, &quot;-&quot;)</code></pre>
+<pre><code>## [1] &quot;-pple&quot;  &quot;p-ar&quot;   &quot;b-nana&quot;</code></pre>
+<pre class="r"><code>str_replace_all(x, &quot;[aeiou]&quot;, &quot;-&quot;)</code></pre>
+<pre><code>## [1] &quot;-ppl-&quot;  &quot;p--r&quot;   &quot;b-n-n-&quot;</code></pre>
+<pre class="r"><code>x &lt;- c(&quot;1 house&quot;, &quot;2 cars&quot;, &quot;3 people&quot;)
+str_replace_all(x, c(&quot;1&quot; = &quot;one&quot;, &quot;2&quot; = &quot;two&quot;, &quot;3&quot; = &quot;three&quot;))</code></pre>
+<pre><code>## [1] &quot;one house&quot;    &quot;two cars&quot;     &quot;three people&quot;</code></pre>
+<pre class="r"><code>sentences %&gt;% 
+  str_replace(&quot;([^ ]+) ([^ ]+) ([^ ]+)&quot;, &quot;\\1 \\3 \\2&quot;) %&gt;% 
+  head(5)</code></pre>
+<pre><code>## [1] &quot;The canoe birch slid on the smooth planks.&quot; 
+## [2] &quot;Glue sheet the to the dark blue background.&quot;
+## [3] &quot;It&#39;s to easy tell the depth of a well.&quot;     
+## [4] &quot;These a days chicken leg is a rare dish.&quot;   
+## [5] &quot;Rice often is served in round bowls.&quot;</code></pre>
+<div id="exercise-9" class="section level3">
+<h3>Exercise 9</h3>
+<p>Replace all forward slashes in a string with backslashes.</p>
+<pre class="r"><code>str_replace_all(&quot;past/present/future&quot;, &quot;/&quot;, &quot;\\\\&quot;)</code></pre>
+<pre><code>## [1] &quot;past\\present\\future&quot;</code></pre>
 </div>
 </div>
-<div id="lab-6" class="section level4">
-<h4>LAB 6</h4>
-<div id="data-maps-and-interactive-graphs-from-the-covid-19-reporting-data" class="section level5">
-<h5><a href="lab6_Hyejoo.html">Data Maps and Interactive Graphs from the COVID-19 reporting data</a></h5>
-</div>
-</div>
-<div id="lab-7" class="section level4">
-<h4>LAB 7</h4>
-<div id="rna-seq-workflow-gene-level-exploratory-analysis-and-differential-expression" class="section level5">
-<h5><a href="lab7_Hyejoo.html">RNA-Seq workflow: gene-level exploratory analysis and differential expression</a></h5>
-</div>
-</div>
-<div id="lab-8" class="section level4">
-<h4>LAB 8</h4>
-<div id="sequence-alignment-phylogenetic-analysis-and-tree-visualization" class="section level5">
-<h5><a href="lab8_Hyejoo.html">Sequence Alignment, Phylogenetic Analysis and Tree Visualization</a></h5>
-</div>
-</div>
-<div id="lab-9" class="section level4">
-<h4>LAB 9</h4>
-<div id="programming-in-r---regular-expressions" class="section level5">
-<h5><a href="lab9a_Hyejoo.html">Programming in R - Regular Expressions</a></h5>
-</div>
-</div>
-<div id="lab-9x" class="section level4">
-<h4>LAB 9x</h4>
-<div id="programming-in-r---control-structures-and-functions" class="section level5">
-<h5><a href="lab9x_Hyejooo.html">Programming in R - Control Structures and Functions</a></h5>
-</div>
-</div>
+<div id="splitting" class="section level2">
+<h2>Splitting</h2>
+<pre class="r"><code>sentences %&gt;%
+  head(5) %&gt;% 
+  str_split(&quot; &quot;)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;The&quot;     &quot;birch&quot;   &quot;canoe&quot;   &quot;slid&quot;    &quot;on&quot;      &quot;the&quot;     &quot;smooth&quot; 
+## [8] &quot;planks.&quot;
+## 
+## [[2]]
+## [1] &quot;Glue&quot;        &quot;the&quot;         &quot;sheet&quot;       &quot;to&quot;          &quot;the&quot;        
+## [6] &quot;dark&quot;        &quot;blue&quot;        &quot;background.&quot;
+## 
+## [[3]]
+## [1] &quot;It&#39;s&quot;  &quot;easy&quot;  &quot;to&quot;    &quot;tell&quot;  &quot;the&quot;   &quot;depth&quot; &quot;of&quot;    &quot;a&quot;     &quot;well.&quot;
+## 
+## [[4]]
+## [1] &quot;These&quot;   &quot;days&quot;    &quot;a&quot;       &quot;chicken&quot; &quot;leg&quot;     &quot;is&quot;      &quot;a&quot;      
+## [8] &quot;rare&quot;    &quot;dish.&quot;  
+## 
+## [[5]]
+## [1] &quot;Rice&quot;   &quot;is&quot;     &quot;often&quot;  &quot;served&quot; &quot;in&quot;     &quot;round&quot;  &quot;bowls.&quot;</code></pre>
+<pre class="r"><code>&quot;a|b|c|d&quot; %&gt;% 
+  str_split(&quot;\\|&quot;) %&gt;% 
+  .[[1]]</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;</code></pre>
+<pre class="r"><code>sentences %&gt;%
+  head(5) %&gt;% 
+  str_split(&quot; &quot;, simplify = TRUE)</code></pre>
+<pre><code>##      [,1]    [,2]    [,3]    [,4]      [,5]  [,6]    [,7]     [,8]         
+## [1,] &quot;The&quot;   &quot;birch&quot; &quot;canoe&quot; &quot;slid&quot;    &quot;on&quot;  &quot;the&quot;   &quot;smooth&quot; &quot;planks.&quot;    
+## [2,] &quot;Glue&quot;  &quot;the&quot;   &quot;sheet&quot; &quot;to&quot;      &quot;the&quot; &quot;dark&quot;  &quot;blue&quot;   &quot;background.&quot;
+## [3,] &quot;It&#39;s&quot;  &quot;easy&quot;  &quot;to&quot;    &quot;tell&quot;    &quot;the&quot; &quot;depth&quot; &quot;of&quot;     &quot;a&quot;          
+## [4,] &quot;These&quot; &quot;days&quot;  &quot;a&quot;     &quot;chicken&quot; &quot;leg&quot; &quot;is&quot;    &quot;a&quot;      &quot;rare&quot;       
+## [5,] &quot;Rice&quot;  &quot;is&quot;    &quot;often&quot; &quot;served&quot;  &quot;in&quot;  &quot;round&quot; &quot;bowls.&quot; &quot;&quot;           
+##      [,9]   
+## [1,] &quot;&quot;     
+## [2,] &quot;&quot;     
+## [3,] &quot;well.&quot;
+## [4,] &quot;dish.&quot;
+## [5,] &quot;&quot;</code></pre>
+<pre class="r"><code>fields &lt;- c(&quot;Name: Hadley&quot;, &quot;Country: NZ&quot;, &quot;Age: 35&quot;)
+fields %&gt;% str_split(&quot;: &quot;, n = 2, simplify = TRUE)</code></pre>
+<pre><code>##      [,1]      [,2]    
+## [1,] &quot;Name&quot;    &quot;Hadley&quot;
+## [2,] &quot;Country&quot; &quot;NZ&quot;    
+## [3,] &quot;Age&quot;     &quot;35&quot;</code></pre>
+<pre class="r"><code>x &lt;- &quot;This is a sentence.  This is another sentence.&quot;
+str_view_all(x, boundary(&quot;word&quot;))</code></pre>
+<div id="htmlwidget-9940d42c762a9364c4ae" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9940d42c762a9364c4ae">{"x":{"html":"<ul>\n  <li><span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>a<\/span> <span class='match'>sentence<\/span>.  <span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>another<\/span> <span class='match'>sentence<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>str_split(x, &quot; &quot;)[[1]]</code></pre>
+<pre><code>## [1] &quot;This&quot;      &quot;is&quot;        &quot;a&quot;         &quot;sentence.&quot; &quot;&quot;          &quot;This&quot;     
+## [7] &quot;is&quot;        &quot;another&quot;   &quot;sentence.&quot;</code></pre>
+<pre class="r"><code>str_split(x, boundary(&quot;word&quot;))[[1]]</code></pre>
+<pre><code>## [1] &quot;This&quot;     &quot;is&quot;       &quot;a&quot;        &quot;sentence&quot; &quot;This&quot;     &quot;is&quot;       &quot;another&quot; 
+## [8] &quot;sentence&quot;</code></pre>
+<div id="exercise-10" class="section level3">
+<h3>Exercise 10</h3>
+<p>Split up a string like “apples, pears, and bananas” into individual components.</p>
+<pre class="r"><code>x &lt;- c(&quot;apples, pears, and bananas&quot;)
+str_split(x, &quot;, +(and +)?&quot;)[[1]]</code></pre>
+<pre><code>## [1] &quot;apples&quot;  &quot;pears&quot;   &quot;bananas&quot;</code></pre>
 </div>
 </div>
 </div>

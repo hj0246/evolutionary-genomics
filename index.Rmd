@@ -37,7 +37,7 @@ This is the collection of hmtl files from the course repository  (https://github
 #### LAB 5
 ##### [Working with COVID-19 reporting data (Part2)](lab5_Hyejoo_lab5.html)
 
-#### LAB 5.5
+#### LAB 5x
 ##### [Working with COVID-19 reporting data (Part2.5)](lab5_supplemental_Hyejoo.html)
 
 #### LAB 6
@@ -45,3 +45,12 @@ This is the collection of hmtl files from the course repository  (https://github
 
 #### LAB 7
 ##### [RNA-Seq workflow: gene-level exploratory analysis and differential expression](lab7_Hyejoo.html)
+
+#### LAB 8
+##### [Sequence Alignment, Phylogenetic Analysis and Tree Visualization](lab8_Hyejoo.html)
+
+#### LAB 9
+##### [Programming in R - Regular Expressions](lab9a_Hyejoo.html)
+
+#### LAB 9x
+##### [Programming in R - Control Structures and Functions](lab9x_Hyejooo.html)
