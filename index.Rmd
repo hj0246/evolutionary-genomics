@@ -59,4 +59,7 @@ This is the collection of hmtl files from the course repository  (https://github
 ##### [Population genomics based on high throughput sequencing (HTS)]
 
 #### LAB 11
-##### [Microbiome Analysis using dada2 and phyloseq](lab11_Hyejooo.html)
+##### [Microbiome Analysis using dada2 and phyloseq](lab11_Hyejoo.html)
+
+#### LAB 11x
+##### [Microbiome Analysis using phyloseq](lab11x_Hyejoo.html)
