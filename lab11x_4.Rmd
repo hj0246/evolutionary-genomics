@@ -1,0 +1,59 @@
+---
+title: "4. Plot Microbiome Network"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 4. Plot Microbiome Network
+
+```{r}
+## Load Package and Example Data
+library(phyloseq); packageVersion("phyloseq")
+packageVersion("ggplot2")
+data(enterotype)
+```
+
+```{r}
+## set the random number generator seed explicitly
+set.seed(711L)
+```
+
+#### this code is to remove the 9 samples for which no enterotype designation was assigned, but it was unable to knit. Thus 9 samples are still included below plots.
+    enterotype = subset_samples(enterotype, !is.na(Enterotype))
+
+## The plot_net function
+
+```{r}
+## The default setting
+plot_net(enterotype, maxdist = 0.4, point_label = "Sample_ID")
+```
+
+```{r}
+plot_net(enterotype, maxdist = 0.3, color = "SeqTech", shape="Enterotype")
+```
+
+## The plot_network function
+Create an igraph-based network based on the default distance method, “Jaccard”, and a maximum distance between connected nodes of 0.3.
+```{r}
+ig <- make_network(enterotype, max.dist=0.3)
+plot_network(ig, enterotype)
+```
+
+```{r}
+plot_network(ig, enterotype, color="SeqTech", shape="Enterotype", line_weight=0.4, label=NULL)
+```
+
+```{r}
+## when the maximum distance is lowered, decreasing the number of edges in the network
+ig <- make_network(enterotype, max.dist=0.2)
+plot_network(ig, enterotype, color="SeqTech", shape="Enterotype", line_weight=0.4, label=NULL)
+```
+
+```{r}
+## replace the Jaccard (default) distance method with Bray-Curtis
+ig <- make_network(enterotype, dist.fun="bray", max.dist=0.3)
+plot_network(ig, enterotype, color="SeqTech", shape="Enterotype", line_weight=0.4, label=NULL)
+```
