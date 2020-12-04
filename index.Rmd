@@ -12,54 +12,57 @@ This is the collection of hmtl files from the course repository  (https://github
 
 ![](images/profile.JPG)
 
-## Lab Contents
+# Lab Contents
 
-### R Basics
+## R Basics
 
-#### LAB 1
-##### [Introduction to R and Reproducible Research](lab1_Hyejoo.html)
+### LAB 1
+#### [Introduction to R and Reproducible Research](lab1_Hyejoo.html)
 
-#### LAB 2
-##### [git, GitHub and Rstudio project](lab2_Hyejoo.html)
+### LAB 2
+#### [git, GitHub and Rstudio project](lab2_Hyejoo.html)
 
-#### LAB 3a
-##### [Data Wrangling: Starting with the Data](lab3a_Hyejoo.html)
+### LAB 3a
+#### [Data Wrangling: Starting with the Data](lab3a_Hyejoo.html)
 
-#### LAB 3b
-##### [Data Wrangling: Manipulating data](lab3b_Hyejoo.html)
+### LAB 3b
+#### [Data Wrangling: Manipulating data](lab3b_Hyejoo.html)
 
-#### LAB 4a
-##### [Data visualization with ggplot2](lab4a_Hyejoo.html)
+### LAB 4a
+#### [Data visualization with ggplot2](lab4a_Hyejoo.html)
 
-#### LAB 4b
-##### [Working with COVID-19 reporting data (Part1)](lab4_Hyejoo.html)
+### LAB 4b
+#### [Working with COVID-19 reporting data (Part1)](lab4_Hyejoo.html)
 
-#### LAB 5
-##### [Working with COVID-19 reporting data (Part2)](lab5_Hyejoo_lab5.html)
+### LAB 5
+#### [Working with COVID-19 reporting data (Part2)](lab5_Hyejoo_lab5.html)
 
-#### LAB 5x
-##### [Working with COVID-19 reporting data (Part2.5)](lab5_supplemental_Hyejoo.html)
+### LAB 5x
+#### [Working with COVID-19 reporting data (Part2.5)](lab5_supplemental_Hyejoo.html)
 
-#### LAB 6
-##### [Data Maps and Interactive Graphs from the COVID-19 reporting data](lab6_Hyejoo.html)
+### LAB 6
+#### [Data Maps and Interactive Graphs from the COVID-19 reporting data](lab6_Hyejoo.html)
 
-#### LAB 7
-##### [RNA-Seq workflow: gene-level exploratory analysis and differential expression](lab7_Hyejoo.html)
+### LAB 7
+#### [RNA-Seq workflow: gene-level exploratory analysis and differential expression](lab7_Hyejoo.html)
 
-#### LAB 8
-##### [Sequence Alignment, Phylogenetic Analysis and Tree Visualization](lab8_Hyejoo.html)
+### LAB 8
+#### [Sequence Alignment, Phylogenetic Analysis and Tree Visualization](lab8_Hyejoo.html)
 
-#### LAB 9
-##### [Programming in R - Regular Expressions](lab9a_Hyejoo.html)
+### LAB 9
+#### [Programming in R - Regular Expressions](lab9a_Hyejoo.html)
 
-#### LAB 9x
-##### [Programming in R - Control Structures and Functions](lab9x_Hyejooo.html)
+### LAB 9x
+#### [Programming in R - Control Structures and Functions](lab9x_Hyejooo.html)
 
-#### LAB 10
-##### [Population genomics based on high throughput sequencing (HTS)](lab10_Hyejoo.Rmd)
+### LAB 10
+#### [Population genomics based on high throughput sequencing (HTS)](lab10_Hyejoo.Rmd)
 
-#### LAB 11
-##### [Microbiome Analysis using dada2 and phyloseq](lab11_Hyejoo.html)
+### LAB 11
+#### [Microbiome Analysis using dada2 and phyloseq](lab11_Hyejoo.html)
 
-#### LAB 11x
-##### [Microbiome Analysis using phyloseq](lab11x_Hyejoo.html)
+### LAB 11x
+#### [Microbiome Analysis using phyloseq](lab11x_Hyejoo.html)
+
+### Lab 12
+#### [Network Analysis using Cytoscape and RCy3](lab12_Hyejoo.html)

@@ -1,0 +1,36 @@
+---
+title: "Lab 12: Network Analysis using Cytoscape and RCy3"
+author: "Hyejoo Kang"
+output:
+  rmarkdown::html_document:
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Cytopscape graphs
+
+## Basic Data Visualization
+
+![Yeast data](images/yeast.png)
+
+## Differentially Expressed Genes
+
+![STRING protein A](images/stringproteinA.png)
+
+![STRING protein B](images/stringimageB.png)
+
+![STRING disease](images/stringimageD.png)
+
+
+# Ry3 Tutorial 
+
+## Data Frame example
+![Data Frame](images/dataframe.png)
+
+## GraphNEL Example
+
+![GraphNEL](images/vignette_image.png)
