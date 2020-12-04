@@ -56,7 +56,7 @@ This is the collection of hmtl files from the course repository  (https://github
 ##### [Programming in R - Control Structures and Functions](lab9x_Hyejooo.html)
 
 #### LAB 10
-##### [Population genomics based on high throughput sequencing (HTS)]
+##### [Population genomics based on high throughput sequencing (HTS)](lab10_Hyejoo.Rmd)
 
 #### LAB 11
 ##### [Microbiome Analysis using dada2 and phyloseq](lab11_Hyejoo.html)
