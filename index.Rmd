@@ -3,8 +3,9 @@ title: "Evolutionary Genomics & Bioinformatics"
 author: "Hyejoo Kang"
 date: Fall 2020
 output:
-  rmarkdown::html_document:
-    theme: lumen
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
 ---
 
 # Welcome to my website!
